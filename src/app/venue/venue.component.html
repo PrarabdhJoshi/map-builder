@@ -1,3 +1,32 @@
-<p>
-  venue works!
-</p>
+<div class="site">
+<header>
+  <mat-toolbar color = "primary">
+    <button mat-button class="word">Map-Builder</button>
+    <span class="fill-remaining-space"></span>
+    <button md-button class="button1">Sign in</button>
+  </mat-toolbar>    
+</header>
+
+<div class="mainbody">   
+<form class="container">
+    <md-radio-group layout="row" class="radio">              
+     <mat-radio-button > Search by Location </mat-radio-button>
+     <mat-radio-button > Search by Name </mat-radio-button>
+    </md-radio-group>
+  <mat-card class="card">      
+    <mat-card-header></mat-card-header>      
+    <mat-card-content>
+       
+      <mat-input-container class="inputWidth">
+        <input matInput type="text" placeholder="Location">
+      </mat-input-container>
+    </mat-card-content>
+    <mat-card-actions></mat-card-actions>
+  </mat-card>
+  <button mat-raised-button type="button" class="button" color="primary">Search Resturant
+  </button>
+  
+ </form>
+       
+</div>  
+</div>
