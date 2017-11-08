@@ -5,15 +5,27 @@ import json
 import datetime
 import jwt
 from functools import wraps
+import pymongo
+from credentials import SECRET_KEY,user_info
 
 #from bson import ObjectID
 #use the database map_venues
 #use collection map_db
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'map_db'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/map_db'
-app.config['SECRET_KEY'] = "YOUR_SECRET_KEY_GOES_HERE"
+# app.config['MONGO_DBNAME'] = 'map_db'
+# #app.config['MONGO_URI'] = 'mongodb://localhost:27017/map_db'
+
+
+client = pymongo.MongoClient("mongodb://"+user_info['username']+":"+user_info['password']+"@18.216.181.46/test_map_db") # defaults to port 27017
+
+db = client.test_map_db
+
+# print the number of documents in a collection
+#print db.collection.count()
+
+
+app.config['SECRET_KEY'] = SECRET_KEY
 
 def check_token(f):
     @wraps(f)
@@ -35,8 +47,8 @@ def welcome():
 
 @app.route("/api/addvenue", methods=["POST"])
 def put_data():
-    collection = mongo.db.venue
-    
+    #collection = mongo.db.venue
+    collection = db.venue
     data = request.form.to_dict()
     #process this data hierarchially 
     data1={}
@@ -67,7 +79,7 @@ def put_data():
 
 @app.route("/api/get_venue/<string:short_name>", methods=["GET"])
 def get_venue_by_name(short_name):
-    venue = mongo.db.venue.find_one({"short_name":short_name})
+    venue = db.venue.find_one({"short_name":short_name})
     venue["_id"] = str(venue["_id"])
     if(venue):
         return jsonify(venue)#["venue_name"]
@@ -78,7 +90,7 @@ def get_venue_by_name(short_name):
 @check_token
 def get_all_venues():
     all_data=[]
-    venues = mongo.db.venue.find()
+    venues = db.venue.find()
     for v in venues:
         v["_id"] = str(v["_id"])
         all_data.append(v)
