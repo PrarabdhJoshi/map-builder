@@ -30,7 +30,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 def check_token(f):
     @wraps(f)
     def decorated_check(*args,**kwargs):
-        token = request.args.get('token')
+        token = request.args.get('your_token')
         if not token:
             return jsonify({"Error: ":"This page requires an Access Token"})
         try:
@@ -78,6 +78,7 @@ def put_data():
 #Create the route for ADDING TEST Venues
 
 @app.route("/api/get_venue/<string:short_name>", methods=["GET"])
+@check_token
 def get_venue_by_name(short_name):
     venue = db.venue.find_one({"short_name":short_name})
     venue["_id"] = str(venue["_id"])

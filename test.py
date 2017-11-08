@@ -57,22 +57,25 @@ class FlaskTestCase(unittest.TestCase):
     def test_get_venue(self):
         tester = app.test_client(self)
         res = tester.get("/api/get_venue/bistro-on-main")
+        self.assertTrue(res.status_code,403)
         data = json.loads(res.data)
-        link = data["onboarding"]["proposal_template_link"]
-        response = tester.get(link)
-        self.assertTrue(response.status_code,200)
+        # link = data["onboarding"]["proposal_template_link"]
+        # response = tester.get(link)
+        
 
     def test_keys_REST(self):
         tester = app.test_client(self)
         res = tester.get("/api/get_venue/bistro-on-main")
         data = json.loads(res.data)
-        self.assertTrue('onboarding' in data)
+        self.assertTrue('Error: ' in data)
     
     def test_keys_REST1(self):
         tester = app.test_client(self)
         res = tester.get("/api/get_venue/bistro-on-main")
         data = json.loads(res.data)
-        self.assertTrue('onboarding' in data and 'accounts')
+        self.assertEqual(data['Error: '],'This page requires an Access Token')
+
+    
 
 
 if __name__ == '__main__':
