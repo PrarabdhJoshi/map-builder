@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { VenueComponent } from './venue/venue.component';
 import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule,MatRadioModule,MatToolbarModule, MatCardModule,MatInputModule} from '@angular/material';
@@ -21,6 +22,7 @@ import {MatButtonModule, MatCheckboxModule,MatRadioModule,MatToolbarModule, MatC
     HttpClientModule,
     CommonModule,
     FormsModule,
+    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAsf3dSFPmh3ZuPGxTBQPnAHrliHIjuodk'
     }),

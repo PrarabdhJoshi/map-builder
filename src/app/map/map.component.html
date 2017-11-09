@@ -1,6 +1,12 @@
 <!-- <p>
   map:
 </p> -->
+
+<div>
+<h1>Map</h1>
+<input type="text" [(ngModel)]=cityName>
+<button (click)=serachCity()>Search</button>
+</div>
 <div>
   <br>
 <agm-map [latitude]="51.673858" [longitude]="7.815982" [backgroundColor]="black">
@@ -12,4 +18,10 @@
   </agm-snazzy-info-window>
   </agm-marker>
 </agm-map>
-</div>
+</div> 
+<h1>
+  Weather App
+<hr>
+<input type="text" [(ngModel)]=cityname>
+<button (click)=searchCity()>Search</button>
+</h1>
