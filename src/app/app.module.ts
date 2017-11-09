@@ -1,40 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ApplicationRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+import { NgModule } from '@angular/core';
+import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './map/map.component';
-import { VenueComponent } from './venue/venue.component';
-import {HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule,MatRadioModule,MatToolbarModule, MatCardModule,MatInputModule} from '@angular/material';
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material';
+import { MatRadioModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
+
+
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    MapComponent,
-    VenueComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
+    CoreModule,
     HttpModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAsf3dSFPmh3ZuPGxTBQPnAHrliHIjuodk'
-    }),
-    AgmSnazzyInfoWindowModule,
-    BrowserAnimationsModule,MatButtonModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatCheckboxModule,
-    MatRadioModule,
     MatToolbarModule,
     MatCardModule,
-    MatInputModule
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
+

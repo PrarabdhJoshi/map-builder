@@ -1,0 +1,43 @@
+mat-card {
+  width: 22em;
+  margin: 5px 5px;
+  flex: 0 0 20em;
+  margin-top: 5em;
+  margin-bottom: 5em;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+.text-right {
+  margin: 3px;
+  font-size: small;
+  text-align: start;
+}
+
+div {
+  background: url("../../../assets/backimg.jpg");
+  background-size: 100%;
+  background-position: center;
+}
+
+.titlePosition {
+  margin-left: 7em;
+  font-weight: bold;
+  font-size: large;
+  color: indigo;
+}
+
+.bottonPosition {
+  width: 100%;
+  color: rgb(255, 255, 255);
+}
+
