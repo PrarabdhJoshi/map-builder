@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { AgmCoreModule } from '@agm/core';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CoreModule,
     HttpModule,
     AppRoutingModule,

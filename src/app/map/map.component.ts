@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { AgmMap, AgmMarker } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -8,13 +9,14 @@ import { AgmMap, AgmMarker } from '@agm/core';
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent{
+export class MapComponent implements OnInit{
   //zoom level
   zoom: number = 10;
   //Start Position
   lat: number = 42.858217;
   lng: number = -70.929990; 
   //Markers
+  api_data: Object;
   markers: marker[] =[
     {
       name:'Alibaba Restaurant',
@@ -42,8 +44,14 @@ export class MapComponent{
     }
   ];
 
-  constructor(){
-
+  constructor(private http: HttpClient){ }
+  ngOnInit(): void {
+    // Make the HTTP request:
+    this.http.get('http://127.0.0.1:5000/api/get_venue/getall').subscribe(data => {
+      // Read the result field from the JSON response.
+      this.api_data = data;
+      // console.log(this.api_data);
+    });
   }
 
   clickedMarker(marker:marker, index:number){
