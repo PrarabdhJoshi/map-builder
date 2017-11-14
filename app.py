@@ -7,11 +7,13 @@ import jwt
 from functools import wraps
 import pymongo
 from credentials import SECRET_KEY,user_info
+from flask_cors import CORS
 
 #from bson import ObjectID
 #use the database map_venues
 #use collection map_db
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # app.config['MONGO_DBNAME'] = 'map_db'
 # #app.config['MONGO_URI'] = 'mongodb://localhost:27017/map_db'
@@ -78,7 +80,7 @@ def put_data():
 #Create the route for ADDING TEST Venues
 
 @app.route("/api/get_venue/<string:short_name>", methods=["GET"])
-@check_token
+#@check_token
 def get_venue_by_name(short_name):
     venue = db.venue.find_one({"short_name":short_name})
     venue["_id"] = str(venue["_id"])
@@ -88,7 +90,7 @@ def get_venue_by_name(short_name):
         return "Venue Not Found"
 
 @app.route("/api/get_venue/getall", methods=["GET"])
-@check_token
+#@check_token
 def get_all_venues():
     all_data=[]
     venues = db.venue.find()

@@ -75,7 +75,11 @@ class FlaskTestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertEqual(data['Error: '],'This page requires an Access Token')
 
-    
+    def test_random_user(self):
+        tester = app.test_client(self)
+        res = tester.get("/login", headers={"Authorization": "Basic {user}".format(user=b64encode("test_user:paswrd"))})
+        self.assertEqual(res.status_code,401)
+
 
 
 if __name__ == '__main__':
