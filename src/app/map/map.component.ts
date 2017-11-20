@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { AgmMap, AgmMarker } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,52 +12,36 @@ import { HttpClient } from '@angular/common/http';
 
 export class MapComponent implements OnInit{
   //zoom level
-  zoom: number = 10;
+  zoom: number = 5;
   //Start Position
-  lat: number = 42.858217;
-  lng: number = -70.929990; 
+  lat: number = 37.0902;
+  lng: number = -95.7129; 
   //Markers
+  
+  
   api_data: Object;
-  markers: marker[] =[
-    {
-      name:'Alibaba Restaurant',
-      desc: 'Status: Available',
-      icon: 'https://www.wikipedia.org/',
-      lat: 42.825588,
-      lng: -71.018029,
-      draggable: false 
-    },
-    {
-      name:'Indian Cusine',
-      desc: 'Status: Unavailable',
-      icon: 'https://www.wikipedia.org/' ,
-      lat: 42.868164,
-      lng: -70.889071,
-      draggable: false 
-    },
-    {
-      name:'Restaurant of Italia',
-      desc: 'Status: Available',
-      icon: 'https://www.wikipedia.org/',
-      lat: 42.858279,
-      lng: -70.930498,
-      draggable: false 
-    }
-  ];
-
-  constructor(private http: HttpClient){ }
+  
+  message :any;
+  constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
     // Make the HTTP request:
-    this.http.get('http://127.0.0.1:5000/api/get_venue/getall').subscribe(data => {
+    this.activatedRoute.queryParams.forEach((params: Params) => {
+      this.message=this.activatedRoute.snapshot.queryParams['short_name'];
+  });
+    this.http.get('http://127.0.0.1:5000/api/get_venue/'+this.message).subscribe(data => {
       // Read the result field from the JSON response.
       this.api_data = data;
       // console.log(this.api_data);
     });
   }
-
-  clickedMarker(marker:marker, index:number){
-    console.log('Clicked Marker: '+marker.name+'at index'+index);
+  
+  receiveMessage($event){
+    this.message = $event;
   }
+
+  // clickedMarker(marker:marker, index:number){
+  //   console.log('Clicked Marker: '+marker.name+'at index'+index);
+  // }
  
 
   //multiple pinpoints on click
@@ -87,12 +72,12 @@ export class MapComponent implements OnInit{
 }
 
 
-//Marker type
-interface marker{
-  name?:string;
-  desc?:string;
-  icon?:string;
-  lat:number;
-  lng:number;
-  draggable:boolean;  
-}
+// //Marker type
+// interface marker{
+//   name?:string;
+//   desc?:string;
+//   icon?:string;
+//   lat:number;
+//   lng:number;
+//   draggable:boolean;  
+// }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
+import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -38,11 +40,18 @@ import {HttpClientModule} from '@angular/common/http';
     MatRadioModule,
     MatInputModule,
     MatButtonModule,
+    
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
-    })
+    }),
+    RouterModule.forRoot([
+      {
+          path:'map',
+          component: MapComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

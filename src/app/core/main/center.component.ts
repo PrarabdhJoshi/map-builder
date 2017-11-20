@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
 import {Observable} from 'rxjs/Observable';
@@ -14,24 +14,29 @@ export class CenterComponent implements OnInit {
 
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
+  message: String = "hola";
   placeholder: String='Location';
+  short_name: String = "appetites-on-main";
+  
+
+  @Output() messageEvent = new EventEmitter<String>();
   
 
   states: any[] = [
     {
-      name: 'Alibaba Restaurant'
+      name: '101-steak'
     },
     {
-      name: 'Indian Cusine'
+      name: 'amelias'
     },
     {
-      name: 'Gator Bar'
+      name: 'artisans-table'
     },
     {
-      name: 'Restaurant of Italia'
+      name: 'baby-wale'
     },
     {
-      name: 'Restaurant of Peru'
+      name: 'backfin-blues'
     }
   ];
 
@@ -42,8 +47,14 @@ export class CenterComponent implements OnInit {
         .map(state => state ? this.filterStates(state) : this.states.slice());
   }
 
-  
+  sendMessage(){
+    this.messageEvent.emit(this.message);
+  }
 
+  @HostListener('window:keyup.enter', ['$event'])
+  oonEnter(e) {
+    this.short_name=(e.target.value);
+  }
   filterStates(name: string) {
     return this.states.filter(state =>
       state.name.toLowerCase().indexOf(name.toLowerCase()) >= 0);
@@ -68,6 +79,7 @@ function Controller($scope) {
       }
   }
   }
+  
 
 }
 

@@ -1,11 +1,7 @@
 <html>
-    <ul>
-      <li *ngFor="let m of api_data">
-        <input type="text" placeholder="m.venue_name">
-        {{m.venue_name}} / {{m.lat}} / {{m.lng}}
-      </li>
-    </ul>
     
+  
+ 
     <agm-map 
     [latitude]="lat" 
     [longitude]="lng"

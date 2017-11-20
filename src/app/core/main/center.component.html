@@ -1,6 +1,7 @@
-  <div class="mainbody">   
+  <div class="mainbody" >   
+  
       <form class="container">
-           
+          
           <md-radio-group layout="row" class="radio" >                             
           <mat-radio-button ng-click="radioChecked()" ng-app="" ng-controller="Controller" ><b> Search by Location </b></mat-radio-button>
           <mat-radio-button ng-click="radiounChecked()" ng-app="" ng-controller="Controller"><b> Search by Name </b></mat-radio-button>
@@ -11,7 +12,7 @@
           <mat-card-content>         
             <mat-input-container class="inputWidth">
         <!--<input matInput type="text" placeholder="Location">-->
-        <input matInput placeholder="{{placeholder}}" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <input matInput placeholder="{{placeholder}}" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl" >
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
               <span>{{ state.name }}</span>          
@@ -21,8 +22,10 @@
     </mat-card-content>
     <mat-card-actions></mat-card-actions>
   </mat-card>
-  <button mat-raised-button type="button" class="button" color="primary" >Search Resturant
-  </button>
+  <button mat-raised-button type="button" class="button" color="primary" [routerLink]="['/map']" [queryParams]="{short_name: short_name}">Search Resturant
+</button>
+          
 </form> 
+    
 </div>
 
