@@ -39,20 +39,4 @@ describe('SignupComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should render a form tag', async(() => {
-    const fixture = TestBed.createComponent(SignupComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('form').textContent).length==5;
-  }));
-
-  it('should render a Signup button tag', async(() => {
-    const fixture = TestBed.createComponent(SignupComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('button').textContent).toContain('Sign Up');
-  }));
-
-
 });

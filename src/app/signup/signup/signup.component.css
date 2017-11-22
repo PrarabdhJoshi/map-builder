@@ -20,7 +20,7 @@ form {
 }
 
 .titlePosition {
-  margin-left: 7em;
+  margin-left: 4em;
   font-weight: bold;
   font-size: large;
   color: indigo;
@@ -36,4 +36,8 @@ div {
   background-size: 100%;
   background-position: center;
   padding: 5.3%;
+}
+
+.container {
+  margin-top: 7em;
 }

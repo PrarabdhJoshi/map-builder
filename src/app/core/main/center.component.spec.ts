@@ -1,16 +1,16 @@
   import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-  import {APP_BASE_HREF} from '@angular/common';
+  import { APP_BASE_HREF } from '@angular/common';
   import { CenterComponent } from './center.component';
   import { MatCardModule } from '@angular/material';
   import { RouterModule } from '@angular/router';
   import { HttpModule } from '@angular/http';
   import { MatAutocompleteModule } from '@angular/material';
   import { FormControl } from '@angular/forms';
-  import {Observable} from 'rxjs/Observable';
+  import { Observable } from 'rxjs/Observable';
   import 'rxjs/add/operator/startWith';
   import 'rxjs/add/operator/map';
-  import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
   
   describe('CenterComponent', () => {
@@ -47,4 +47,5 @@
     it('should create', () => {
       expect(component).toBeTruthy();
     });
+
   });

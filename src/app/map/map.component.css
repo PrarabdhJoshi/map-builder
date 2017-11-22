@@ -1,5 +1,17 @@
-
 agm-map {
-  
-  height: 600px;
+  height: 500px;
+}
+
+.card {
+  /*flex: 1;*/
+  width: 30%;
+  height: 3.5em;
+  float: left;
+  padding-top: 0.5%;
+  padding-left: auto;
+  margin-left: 27%;
+}
+
+.inputWidth{
+  width: 100%;
 }

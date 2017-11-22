@@ -13,8 +13,6 @@ html, body, app-root .site{
 
 app-center {
   flex: 1;
-  width : 100%;
-  height: 100%;
   background: url("assets/backimg.jpg");
   background-size: cover;
   background-position: center;
@@ -31,4 +29,3 @@ agm-map {
 .full-width {
   width: 100%;
 }
-

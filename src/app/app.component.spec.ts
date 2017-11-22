@@ -4,9 +4,7 @@ import {RouterModule} from '@angular/router';
 import {CoreModule} from './core/core.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {MatToolbarModule} from '@angular/material';
-import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
-
 
 
 describe('AppComponent', () => {
@@ -20,9 +18,6 @@ describe('AppComponent', () => {
         RouterModule.forRoot([]),
         CoreModule,
         MatToolbarModule,
-        AgmCoreModule.forRoot({
-          apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
-        })
       ],
       providers: [
         {
@@ -33,11 +28,10 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
+  it(`should have as title 'app'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app.title).toEqual('app');
   }));
-
  
 });
