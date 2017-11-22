@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import {HttpClient} from '@angular/common/http';
 import {apiService} from '../../api.service';
+import {Http} from '@angular/http';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-center',
@@ -16,48 +17,23 @@ import {apiService} from '../../api.service';
 })
 export class CenterComponent implements OnInit {
 
-  stateCtrl: FormControl;
-  filteredStates: Observable<any[]>;
-  
+  inputField: FormControl = new FormControl();
   placeholder: String='Location';
   short_name: String;
-  //states;
-  all_data: object;
-  service_data;
+  search_result: any[] = [];
   
-
-  @Output() messageEvent = new EventEmitter<String>();
-  
-
-  states: any[] = [
-    {
-      short_name: '101-steak'
-    },
-    {
-      short_name: 'amelias'
-    },
-    {
-      short_name: 'artisans-table'
-    },
-    {
-      short_name: 'baby-wale'
-    },
-    {
-      short_name: 'backfin-blues'
-    }
-  ];
-
-
+  constructor(private _apiService: apiService) { }
+    
   ngOnInit() {
     
-        this.short_name = this._apiService.get_api_data();
-        this.service_data = this._apiService.get_data;
-        this.http.get('http://127.0.0.1:5000/api/get_venue/getall').subscribe(data => {
-          // Read the result field from the JSON response.
-          this.all_data = data;
-           //console.log(this.states);
-           
-        });
+      this.inputField.valueChanges
+      .subscribe(inputField => this._apiService.searchVenues(inputField)
+      .subscribe(result => {
+        if(result.status === 400){return;}
+        else{
+          this.search_result = result;
+        }
+      }));
     
   
 function Controller($scope) {
@@ -76,26 +52,17 @@ function Controller($scope) {
   }
   }
   
-  constructor(private http: HttpClient, private _apiService: apiService) {
-
-    this.stateCtrl = new FormControl();
-    this.filteredStates = this.stateCtrl.valueChanges
-        .startWith(null)
-        .map(state => state ? this.filterStates(state) : this.states.slice());
-  }
-
+  
   // sendMessage(){
   //   this.messageEvent.emit(this.message);
   // }
 
-  @HostListener('window:keyup.enter', ['$event'])
-  oonEnter(e) {
-    this.short_name=(e.target.value);
-  }
-  filterStates(short_name: string) {
-    return this.states.filter(state =>
-      state.short_name.toLowerCase().indexOf(short_name.toLowerCase()) === 0);
-  }
+  // @HostListener('window:keyup.enter', ['$event'])
+  // oonEnter(e) {
+  //   this.short_name=(e.target.value);
+  // }
+ 
+  
 
 
   
