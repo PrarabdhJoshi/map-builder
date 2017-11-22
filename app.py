@@ -8,6 +8,7 @@ from functools import wraps
 import pymongo
 from credentials import SECRET_KEY,user_info
 from flask_cors import CORS
+import re
 
 #from bson import ObjectID
 #use the database map_venues
@@ -67,6 +68,8 @@ def put_data():
             onboarding[key]=value
         elif(key=="stripe_account"):
             accounts[key]=value
+        elif(key=="lat" or key=="lng"):
+            data1[key]=float(value)
         else:
             data1[key]=value
 
@@ -82,10 +85,14 @@ def put_data():
 @app.route("/api/get_venue/<string:short_name>", methods=["GET"])
 #@check_token
 def get_venue_by_name(short_name):
-    venue = db.venue.find_one({"short_name":short_name})
-    venue["_id"] = str(venue["_id"])
+    search = re.compile(r"(.*)"+short_name+"(.*)")
+    venue =  db.venue.find({"short_name":search})
+    arr=[]
+    for v in venue:
+        v["_id"] = str(v["_id"])
+        arr.append(v)
     if(venue):
-        return jsonify(venue)#["venue_name"]
+        return jsonify(arr)#["venue_name"]
     else:
         return "Venue Not Found"
 
