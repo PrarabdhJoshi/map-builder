@@ -20,7 +20,7 @@
         <!--<input matInput type="text" placeholder="Location">-->
         <input matInput placeholder="{{placeholder}}" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl" >
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let state of all_data" [value]="state.short_name">
+          <mat-option *ngFor="let state of all_data " [value]="state.short_name">
               <span style="color:black;">{{ state.short_name }}</span>          
           </mat-option>
         </mat-autocomplete>

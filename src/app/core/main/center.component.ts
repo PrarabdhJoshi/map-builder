@@ -6,11 +6,13 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import {apiService} from '../../api.service';
 
 @Component({
   selector: 'app-center',
   templateUrl: './center.component.html',
-  styleUrls: ['./center.component.css']
+  styleUrls: ['./center.component.css'],
+  providers: [apiService]
 })
 export class CenterComponent implements OnInit {
 
@@ -18,9 +20,10 @@ export class CenterComponent implements OnInit {
   filteredStates: Observable<any[]>;
   
   placeholder: String='Location';
-  short_name: String = "appetites-on-main";
+  short_name: String;
   //states;
   all_data: object;
+  service_data;
   
 
   @Output() messageEvent = new EventEmitter<String>();
@@ -47,6 +50,8 @@ export class CenterComponent implements OnInit {
 
   ngOnInit() {
     
+        this.short_name = this._apiService.get_api_data();
+        this.service_data = this._apiService.get_data;
         this.http.get('http://127.0.0.1:5000/api/get_venue/getall').subscribe(data => {
           // Read the result field from the JSON response.
           this.all_data = data;
@@ -71,7 +76,7 @@ function Controller($scope) {
   }
   }
   
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _apiService: apiService) {
 
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
