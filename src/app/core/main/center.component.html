@@ -20,10 +20,13 @@
             <mat-card-content>         
               <mat-input-container class="inputWidth">
           <!--<input matInput type="text" placeholder="Location">-->
-          <input matInput placeholder="{{placeholder}}">
+          <input matInput [formControl]="inputField" placeholder="{{placeholder}}">
           
-            <mat-option *ngFor="let state of search_data " [value]="state.short_name">
-                <span style="color:black;">{{ state.short_name }}</span>          
+            <mat-option *ngFor="let v of search_result">
+              <div>
+                <span>{{v?.venue_name}}</span>  
+                
+              </div>        
             </mat-option>
           
         </mat-input-container>
