@@ -22,9 +22,14 @@ export class CenterComponent implements OnInit {
   short_name: String;
   search_result: any[] = [];
   
-  constructor(private _apiService: apiService) { }
+  constructor(private _apiService: apiService) { 
+    
+
+  }
     
   ngOnInit() {
+
+    this.short_name = this._apiService.get_default_location();
     
       this.inputField.valueChanges
       .subscribe(inputField => this._apiService.searchVenues(inputField)

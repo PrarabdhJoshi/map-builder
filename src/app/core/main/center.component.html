@@ -20,12 +20,12 @@
             <mat-card-content>         
               <mat-input-container class="inputWidth">
           <!--<input matInput type="text" placeholder="Location">-->
-          <input matInput placeholder="{{placeholder}}" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl" >
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let state of all_data " [value]="state.short_name">
+          <input matInput placeholder="{{placeholder}}">
+          
+            <mat-option *ngFor="let state of search_data " [value]="state.short_name">
                 <span style="color:black;">{{ state.short_name }}</span>          
             </mat-option>
-          </mat-autocomplete>
+          
         </mat-input-container>
       </mat-card-content>
       <mat-card-actions></mat-card-actions>

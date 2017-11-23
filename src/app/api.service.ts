@@ -14,7 +14,7 @@ export class apiService{
         return this.http.get(url).map(res => res.json());
     }
     
-    get_api_data(){
+    get_default_location(){
             return "101-steak";
     }
     
