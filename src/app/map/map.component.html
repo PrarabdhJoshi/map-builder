@@ -67,7 +67,7 @@
                                     <mat-card-title><h2>{{d.company.agent}}</h2></mat-card-title>
                                 
                                   </mat-card-header>
-                                <<mat-card-content>
+                                <mat-card-content>
                                   <p><strong>
 
                                     <a href={{d.company.calendar_link}}>calendar_link</a><br>
@@ -89,12 +89,13 @@
                                     <mat-card-title><h2>{{d.status}}/{{d.service_type}}</h2></mat-card-title>
                                 
                                   </mat-card-header>
-                                <<mat-card-content>
+                                <mat-card-content>
                                   <p><strong>
 
                                     <a href={{d.onboarding.evp_builder}}>Event Builder</a><br>
                                     <a href={{d.onboarding.proposal_template_link}}>Proposal Template</a><br />
                                     <p>Web Access: {{d.onboarding.web_access}}</p><br>
+                                    <a routerLink="/edit">Edit the Venue Details</a>
                                    
                                   </strong>                                    
                                   </p>
@@ -103,8 +104,37 @@
                             
                           </div>
                       </mat-tab>
-                      <mat-tab label="Sales"></mat-tab>
-                      <mat-tab label="Accounting"></mat-tab>
+                      <mat-tab label="Sales">
+                        
+                        
+                          <p>Find Prospective Clients Around this Area</p>
+                            
+                          
+
+
+                      </mat-tab>
+                      <mat-tab label="Accounting">
+
+                          <div class="demo-tab-content">
+                              <mat-card class="example-card" >
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <mat-card-title><h2>Account Connected</h2></mat-card-title>
+                                
+                                  </mat-card-header>
+                                <mat-card-content>
+                                  <p><strong>
+
+                                    <a href={{d.accounts.stripe_account}}>Conected Stripe Account</a><br>
+                                   
+                                  </strong>                                    
+                                  </p>
+                                </mat-card-content>
+                                </mat-card>
+                            
+                          </div>
+
+                      </mat-tab>
                     </mat-tab-group>
            
               </div>

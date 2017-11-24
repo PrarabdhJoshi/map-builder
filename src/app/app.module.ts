@@ -22,6 +22,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
+import { EditVenueComponent } from './edit-venue/edit-venue.component';
 
 
 
@@ -30,7 +31,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [ 
     AppComponent,
-    MapComponent
+    MapComponent,
+    EditVenueComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,10 @@ import {MatStepperModule} from '@angular/material/stepper';
       {
           path:'map',
           component: MapComponent
+      },
+      {
+        path: 'edit',
+        component: EditVenueComponent
       }
     ])
   ],
