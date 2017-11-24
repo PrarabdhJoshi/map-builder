@@ -62,12 +62,14 @@ function Controller($scope) {
   //   this.messageEvent.emit(this.message);
   // }
 
-  // @HostListener('window:keyup.enter', ['$event'])
-  // oonEnter(e) {
-  //   this.short_name=(e.target.value);
-  // }
+  @HostListener('window:keyup.enter', ['$event'])
+  oonEnter($event) {
+    this.short_name=($event.target.value);
+  }
  
-  
+  selected($event){
+    console.log($event.target);
+  }
 
 
   

@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { AgmMap, AgmMarker } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-map',
@@ -17,7 +17,7 @@ export class MapComponent implements OnInit{
   lat: number = 37.0902;
   lng: number = -95.7129; 
   //Markers
-  
+  visible: boolean = false;
   
   api_data: Object;
   
@@ -45,28 +45,22 @@ export class MapComponent implements OnInit{
  
 
   //multiple pinpoints on click
-  /*
-  mapClicked($event:any){
-    var newMarker = {
-      name: 'Untitled',
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-      draggable:false
-    }
-    this.markers.push(newMarker);
+  
+  mapClicked($event){
+    this.visible=true;
   }
 
-  markerDragEnd(marker:any, $event:any){
-    var updMarker = {
-      name: marker.name,
-      lat: parseFloat(marker.lat),
-      lng: parseFloat(marker.lng),
-      draggable:false
-    }
-    var newLat = $event.coords.lat;
-    var newLng = $event.coords.lat;
-  }
-*/
+  // markerDragEnd(marker:any, $event:any){
+  //   var updMarker = {
+  //     name: marker.name,
+  //     lat: parseFloat(marker.lat),
+  //     lng: parseFloat(marker.lng),
+  //     draggable:false
+  //   }
+  //   var newLat = $event.coords.lat;
+  //   var newLng = $event.coords.lat;
+  // }
+
 
 
 }

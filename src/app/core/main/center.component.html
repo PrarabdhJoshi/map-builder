@@ -22,11 +22,11 @@
           <!--<input matInput type="text" placeholder="Location">-->
           <input matInput [formControl]="inputField" placeholder="{{placeholder}}">
           
-            <mat-option *ngFor="let v of search_result">
-              <div>
+            <mat-option *ngFor="let v of search_result" (click)="oonEnter($event)">
+              
                 <span>{{v?.venue_name}}</span>  
                 
-              </div>        
+                      
             </mat-option>
           
         </mat-input-container>

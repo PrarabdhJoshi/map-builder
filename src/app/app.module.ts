@@ -13,10 +13,12 @@ import { MatToolbarModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -40,7 +42,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatRadioModule,
     MatInputModule,
     MatButtonModule,
-    
+    MatGridListModule,
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({

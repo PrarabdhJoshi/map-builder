@@ -1,7 +1,14 @@
-<html>
+
   
 <button mat-raised-button color="primary" routerLink="/home"> Back to search</button>  
 
+<mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile *ngIf="visible">1</mat-grid-tile>
+    
+  </mat-grid-list>
+
+
+  <div>
   <agm-map 
   [latitude]="lat" 
   [longitude]="lng"
@@ -10,7 +17,7 @@
   [zoomControl]="false"
   (mapClick)="mapClicked($event)">
 
-    <agm-marker 
+    <agm-marker (Click)="markerClicked($event)"
       *ngFor="let m of api_data;let i=index"
      
       [latitude]="m.lat"
@@ -23,5 +30,8 @@
         
       </agm-info-window> 
     </agm-marker>
+    
 </agm-map>
-</html>
+  </div>
+
+  
