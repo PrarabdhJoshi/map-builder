@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -44,6 +46,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatListModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'

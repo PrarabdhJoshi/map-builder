@@ -16,3 +16,13 @@ agm-map {
 .inputWidth{
   width: 100%;
 }
+
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  
+  background-image: url('http://www.101steakatl.com/wp-content/themes/101steak/images/logo.png');
+  background-size: cover;
+}

@@ -2,13 +2,8 @@
   
 <button mat-raised-button color="primary" routerLink="/home"> Back to search</button>  
 
-<mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngIf="visible">1</mat-grid-tile>
-    
-  </mat-grid-list>
 
-
-  <div>
+  <div style="height: 50%">
   <agm-map 
   [latitude]="lat" 
   [longitude]="lng"
@@ -34,4 +29,31 @@
 </agm-map>
   </div>
 
-  
+  <div *ngIf="visible">
+      <div *ngFor="let d of api_data;let j=index">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title><h2>{{d.venue_name}}</h2></mat-card-title>
+                
+              </mat-card-header>
+              <img mat-card-image src="https://cdn.wedding-spot.com/images/venues/9247/101-Steak-Wedding-Atlanta-GA-3_main.1480707976.jpg" alt="venue_pic">
+              <mat-card-content>
+                <p><strong>
+                  {{d.venue_meta.venue_street}}<br>
+                  {{d.venue_meta.venue_city}}<br>
+                  {{d.venue_meta.venue_state}}<br>
+                  {{d.zip}}</strong>
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>{{d.venue_meta.venue_website}}</button>
+               
+              </mat-card-actions>
+            </mat-card>
+      
+      
+      
+      
+      </div>
+      </div>
