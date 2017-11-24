@@ -57,10 +57,52 @@
                 </mat-card-actions>
                 </mat-card>
               </div>
-              <div style="display: table-cell;width:60%"> 
-                  <mat-tab-group>
-                      <mat-tab label="Booking Agents"></mat-tab>
-                      <mat-tab label="Onboarding"></mat-tab>
+              <div style="display: table-cell;"> 
+                  <mat-tab-group class="demo-tab-group">
+                      <mat-tab label="Event Booking">
+                          <div class="demo-tab-content">
+                              <mat-card class="example-card" >
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <mat-card-title><h2>{{d.company.agent}}</h2></mat-card-title>
+                                
+                                  </mat-card-header>
+                                <<mat-card-content>
+                                  <p><strong>
+
+                                    <a href={{d.company.calendar_link}}>calendar_link</a><br>
+                                    <a href={{d.company.wiki_link}}>Wiki_Link</a><br />
+                                    {{d.company.company_email}}<br>
+                                    {{d.company.company_phone}}<br>
+                                  </strong>                                    
+                                  </p>
+                                </mat-card-content>
+                                </mat-card>
+                            
+                          </div>
+                      </mat-tab>
+                      <mat-tab label="Onboarding">
+                          <div class="demo-tab-content">
+                              <mat-card class="example-card" >
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <mat-card-title><h2>{{d.status}}/{{d.service_type}}</h2></mat-card-title>
+                                
+                                  </mat-card-header>
+                                <<mat-card-content>
+                                  <p><strong>
+
+                                    <a href={{d.onboarding.evp_builder}}>Event Builder</a><br>
+                                    <a href={{d.onboarding.proposal_template_link}}>Proposal Template</a><br />
+                                    <p>Web Access: {{d.onboarding.web_access}}</p><br>
+                                   
+                                  </strong>                                    
+                                  </p>
+                                </mat-card-content>
+                                </mat-card>
+                            
+                          </div>
+                      </mat-tab>
                       <mat-tab label="Sales"></mat-tab>
                       <mat-tab label="Accounting"></mat-tab>
                     </mat-tab-group>
