@@ -35,7 +35,7 @@
       <div *ngFor="let d of api_data;let j=index">
           <div style="width: 100%; display: table;">
             <div style="display: table-row">
-              <div style="width: 600px; display: table-cell;">
+              <div style="width: 450px; display: table-cell;">
                 <mat-card class="example-card" >
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
@@ -57,7 +57,16 @@
                 </mat-card-actions>
                 </mat-card>
               </div>
-              <div style="display: table-cell;"> Right </div>
+              <div style="display: table-cell;width:60%"> 
+                  <mat-tab-group>
+                      <mat-tab label="Booking Agents"></mat-tab>
+                      <mat-tab label="Onboarding"></mat-tab>
+                      <mat-tab label="Sales"></mat-tab>
+                      <mat-tab label="Accounting"></mat-tab>
+                    </mat-tab-group>
+           
+              </div>
+              
             </div>
           </div>
       

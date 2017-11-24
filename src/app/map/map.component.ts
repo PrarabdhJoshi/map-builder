@@ -23,13 +23,13 @@ export class MapComponent implements OnInit{
   api_data: Object;
   
   message :any;
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+ 
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
     // Make the HTTP request:
     this.activatedRoute.queryParams.forEach((params: Params) => {
       this.message=this.activatedRoute.snapshot.queryParams['short_name'];
+
   });
     this.http.get('http://127.0.0.1:5000/api/get_venue/'+this.message).subscribe(data => {
       // Read the result field from the JSON response.

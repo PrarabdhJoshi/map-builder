@@ -15,7 +15,7 @@ export class apiService{
     }
     
     get_default_location(){
-            return "101-steak";
+            return "aoc";
     }
     
    
