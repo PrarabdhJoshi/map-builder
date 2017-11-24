@@ -1,8 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ViewChild } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { AgmMap, AgmMarker } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginator} from '@angular/material';
 
 @Component({
   selector: 'app-map',
@@ -22,6 +23,8 @@ export class MapComponent implements OnInit{
   api_data: Object;
   
   message :any;
+  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
     // Make the HTTP request:

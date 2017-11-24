@@ -19,7 +19,8 @@ import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -47,6 +48,8 @@ import {MatListModule} from '@angular/material/list';
     MatGridListModule,
     ReactiveFormsModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
