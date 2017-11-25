@@ -79,7 +79,11 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         res = tester.get("/login", headers={"Authorization": "Basic {user}".format(user=b64encode("test_user:paswrd"))})
         self.assertEqual(res.status_code,401)
-
+    
+    def test_get_location(self):
+        tester = app.test_client(self)
+        res = tester.get("/api/get_location/Atlanta")
+        self.assertTrue(res.status_code,200)
 
 
 if __name__ == '__main__':

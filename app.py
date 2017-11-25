@@ -96,6 +96,21 @@ def get_venue_by_name(short_name):
     else:
         return "Venue Not Found"
 
+
+@app.route("/api/get_location/<string:location_name>", methods=["GET"])
+#@check_token
+def get_venue_by_location(location_name):
+    search = re.compile(r"(.*)"+location_name+"(.*)")
+    venue =  db.venue.find({"venue_meta.venue_city":search})
+    arr=[]
+    for v in venue:
+        v["_id"] = str(v["_id"])
+        arr.append(v)
+    if(venue):
+        return jsonify(arr)#["venue_name"]
+    else:
+        return "Venue Not Found"
+
 @app.route("/api/get_venue/getall", methods=["GET"])
 #@check_token
 def get_all_venues():
