@@ -18,7 +18,8 @@ import {Subject} from 'rxjs/Subject';
 export class CenterComponent implements OnInit {
 
   inputField: FormControl = new FormControl();
-  placeholder: String='Location';
+  searchbyname: boolean=false;
+  searchbylocation: boolean = false;
   short_name: String;
   search_result: any[] = [];
   
@@ -76,7 +77,14 @@ function Controller($scope) {
   }
 
 
-  
+  locsearch(){
+    this.searchbylocation=true;
+    this.searchbyname=false;
+  }
+  namesearch(){
+    this.searchbylocation=false;
+    this.searchbyname=true;
+  }
 
 }
 
