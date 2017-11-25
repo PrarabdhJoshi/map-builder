@@ -15,7 +15,7 @@ export class apiService{
     }
     
     get_default_location(){
-            return "aoc";
+            return "";
     }
     
    

@@ -67,8 +67,12 @@ function Controller($scope) {
     this.short_name=($event.target.value);
   }
  
+  onclick($event){
+    this.short_name=$event.target.innerHTML;
+    console.log($event);
+  }
   selected($event){
-    console.log($event.target);
+    console.log($event.target.innerHTML);
   }
 
 
