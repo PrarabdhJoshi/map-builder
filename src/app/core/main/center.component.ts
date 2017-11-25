@@ -18,10 +18,13 @@ import {Subject} from 'rxjs/Subject';
 export class CenterComponent implements OnInit {
 
   inputField: FormControl = new FormControl();
-  searchbyname: boolean=false;
+  zipinputField: FormControl = new FormControl();
+  searchbyname: boolean=true;
   searchbylocation: boolean = false;
   short_name: String;
+  city_name: string;
   search_result: any[] = [];
+  zip_search_result: any[]=[];
   
   constructor(private _apiService: apiService) { 
     
@@ -40,6 +43,16 @@ export class CenterComponent implements OnInit {
           this.search_result = result;
         }
       }));
+
+      this.zipinputField.valueChanges
+      .subscribe(zipinputField => this._apiService.searchVenuesbylocation(zipinputField)
+      .subscribe(result => {
+        if(result.status === 400){return;}
+        else{
+          this.zip_search_result = result;
+        }
+      }));
+
     
   
 function Controller($scope) {
@@ -71,6 +84,10 @@ function Controller($scope) {
   onclick($event){
     this.short_name=$event.target.innerHTML;
     console.log($event);
+  }
+
+  onlocclick($event){
+    this.city_name = $event.target.innerHTML;
   }
   selected($event){
     console.log($event.target.innerHTML);

@@ -18,5 +18,9 @@ export class apiService{
             return "";
     }
     
+    searchVenuesbylocation(term: string){
+        let url = 'http://127.0.0.1:5000/api/get_location/'+term;
+        return this.http.get(url).map(res => res.json());
+    }
    
 }
