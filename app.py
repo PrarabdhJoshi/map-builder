@@ -9,7 +9,7 @@ import pymongo
 from credentials import SECRET_KEY,user_info
 from flask_cors import CORS
 import re
-
+from bson.objectid import ObjectId
 #from bson import ObjectID
 #use the database map_venues
 #use collection map_db
@@ -102,6 +102,20 @@ def get_venue_by_name(short_name):
 def get_venue_by_location(location_name):
     search = re.compile(r"(.*)"+location_name+"(.*)",re.IGNORECASE)
     venue =  db.venue.find({"venue_meta.venue_city":search})
+    arr=[]
+    for v in venue:
+        v["_id"] = str(v["_id"])
+        arr.append(v)
+    if(venue):
+        return jsonify(arr)#["venue_name"]
+    else:
+        return "Venue Not Found"
+
+@app.route("/api/venue_id/<string:id>", methods=["GET"])
+#@check_token
+def get_venue_by_id(id):
+    
+    venue =  db.venue.find({"_id":ObjectId(id)})
     arr=[]
     for v in venue:
         v["_id"] = str(v["_id"])
