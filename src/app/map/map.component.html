@@ -95,7 +95,7 @@
                                     <a href={{d.onboarding.evp_builder}}>Event Builder</a><br>
                                     <a href={{d.onboarding.proposal_template_link}}>Proposal Template</a><br />
                                     <p>Web Access: {{d.onboarding.web_access}}</p><br>
-                                    <a routerLink="/edit">Edit the Venue Details</a>
+                                    <a routerLink="/edit"  [queryParams]="{venue_id: d._id}">Edit the Venue Details</a>
                                    
                                   </strong>                                    
                                   </p>
