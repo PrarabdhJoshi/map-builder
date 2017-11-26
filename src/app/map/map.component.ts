@@ -23,24 +23,34 @@ export class MapComponent implements OnInit{
   api_data: Object;
   
   message :any;
+  location: any;
  
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
     // Make the HTTP request:
     this.activatedRoute.queryParams.forEach((params: Params) => {
       this.message=this.activatedRoute.snapshot.queryParams['short_name'];
-
+      this.location=this.activatedRoute.snapshot.queryParams['city_name'];
   });
+   if(this.message!=undefined){
     this.http.get('http://127.0.0.1:5000/api/get_venue/'+this.message).subscribe(data => {
       // Read the result field from the JSON response.
       this.api_data = data;
       // console.log(this.api_data);
     });
   }
+  else if(this.location!=undefined){
+    this.http.get('http://127.0.0.1:5000/api/get_location/'+this.location).subscribe(data => {
+      // Read the result field from the JSON response.
+      this.api_data = data;
+      // console.log(this.api_data);
+    });
+  } 
   
-  receiveMessage($event){
-    this.message = $event;
-  }
+}
+receiveMessage($event){
+  this.message = $event;
+}
 
   // clickedMarker(marker:marker, index:number){
   //   console.log('Clicked Marker: '+marker.name+'at index'+index);
