@@ -100,7 +100,7 @@ def get_venue_by_name(short_name):
 @app.route("/api/get_location/<string:location_name>", methods=["GET"])
 #@check_token
 def get_venue_by_location(location_name):
-    search = re.compile(r"(.*)"+location_name+"(.*)")
+    search = re.compile(r"(.*)"+location_name+"(.*)",re.IGNORECASE)
     venue =  db.venue.find({"venue_meta.venue_city":search})
     arr=[]
     for v in venue:
