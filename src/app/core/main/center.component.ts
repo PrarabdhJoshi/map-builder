@@ -55,20 +55,20 @@ export class CenterComponent implements OnInit {
 
     
   
-function Controller($scope) {
+// function Controller($scope) {
   
-      $scope.radioChecked = function ()
-      {
-          $scope.placeholder="%";
-          $scope.apply();
-      }
+//       $scope.radioChecked = function ()
+//       {
+//           $scope.placeholder="%";
+//           $scope.apply();
+//       }
   
-      $scope.radiounChecked = function ()
-      {
-          $scope.placeholder="Count";
-          $scope.apply();
-      }
-  }
+//       $scope.radiounChecked = function ()
+//       {
+//           $scope.placeholder="Count";
+//           $scope.apply();
+//       }
+//   }
   }
   
   

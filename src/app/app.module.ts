@@ -66,7 +66,7 @@ import { EditVenueComponent } from './edit-venue/edit-venue.component';
       {
         path: 'edit',
         component: EditVenueComponent
-      }
+      },
     ])
   ],
   providers: [],

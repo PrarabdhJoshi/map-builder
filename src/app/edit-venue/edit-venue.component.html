@@ -1,34 +1,73 @@
-<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+ <!-- <div style="height:600px;">
+  <mat-horizontal-stepper [linear]="isLinear">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill Out Venue Information</ng-template>
+        <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Venue Name" formControlName="firstCtrl" value="{{venue_map.venue_name}}">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Venue Short Name" formControlName="firstCtrl" #sname value="{{venue_map.short_name}}">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Status" formControlName="firstCtrl" value="{{venue_map.status}}">
+        </mat-form-field>
+        
+          <mat-form-field> 
+          <input matInput placeholder="Time Zone" formControlName="firstCtrl" value="{{venue_map.time_zone}}">
+        </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="Serivce Type" formControlName="firstCtrl" value="{{venue_map.service_type}}">
+        </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="Street Address" formControlName="firstCtrl" value="{{venue_map.venue_meta.venue_street}}">
+        </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="city" formControlName="firstCtrl" value="{{venue_map.venue_meta.venue_city}}">
+        </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="State" formControlName="firstCtrl" value="{{venue_map.venue_meta.venue_state}}">
+        </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="Phone" formControlName="firstCtrl" value="{{venue_map.venue_meta.venue_phone}}">
+        </mat-form-field>      
+          <mat-form-field>
+          <input matInput placeholder="Agent" formControlName="firstCtrl" value="{{venue_map.company.agent}}">        
+        </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Click Next to Confirm</ng-template>
+        
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      Venue Details Updated
+      <div>
+          <button mat-raised-button type="button" class="button" color="primary" routerLink="/Service/Sign_in" [queryParams]="{short_name: sname.value}">Back
+          </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  </div> 
 
-<mat-horizontal-stepper [linear]="isLinear">
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+  -->
+<div>
+  <h1>Component</h1>
+</div>

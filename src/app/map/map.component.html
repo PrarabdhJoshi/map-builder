@@ -14,9 +14,10 @@
 
     <agm-marker (Click)="markerClicked($event)"
       *ngFor="let m of api_data;let i=index"
-     
+      
       [latitude]="m.loc.lt"
       [longitude]="m.loc.lng"
+      [iconUrl]="'https://cdn0.iconfinder.com/data/icons/development-and-startup-9/512/Contract-64.png'"
       
       >
       
@@ -27,6 +28,9 @@
     </agm-marker>
     
 </agm-map>
+
+
+
   </div>
 
   
@@ -123,10 +127,12 @@
                             </mat-card>
                         
                       </div>
-                        
-                          <p>Find Prospective Clients Around this Area</p>
+                      <h4>Our Other Partners Near this Venue:</h4>
+                        <div *ngFor="let sale of nearby_data">
+                          <p><strong>{{sale.venue_name}}</strong></p>
+
                           
-                          
+                        </div>
 
                             
                           
@@ -146,6 +152,8 @@
                                   <p><strong>
 
                                     <a href={{d.accounts.stripe_account}}>Conected Stripe Account</a><br>
+                                    
+                                    <p >Account Activated: {{d.accounts.stripe_activated}}</p>
                                    
                                   </strong>                                    
                                   </p>
