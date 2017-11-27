@@ -28,7 +28,7 @@ export class EditVenueComponent implements OnInit {
     this.activatedRoute.queryParams.forEach((params: Params) => {
       this.venue_id=this.activatedRoute.snapshot.queryParams['venue_id'];
   });
-  console.log(this.venue_id);
+  
    this._editService.searchvenuebyid(this.venue_id).subscribe(result => {
     if(result.status === 400){return;}
     else{
