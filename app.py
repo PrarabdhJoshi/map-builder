@@ -10,6 +10,8 @@ from credentials import SECRET_KEY,user_info
 from flask_cors import CORS
 import re
 from bson.objectid import ObjectId
+from flask import request
+from bson.son import SON
 #from bson import ObjectID
 #use the database map_venues
 #use collection map_db
@@ -93,6 +95,25 @@ def put_data():
 def get_venue_by_name(short_name):
     search = re.compile(r"(.*)"+short_name+"(.*)")
     venue =  db.venue.find({"short_name":search})
+    
+    arr=[]
+    for v in venue:
+        v["_id"] = str(v["_id"])
+        arr.append(v)
+    if(venue):
+        return jsonify(arr)#["venue_name"]
+    else:
+        return "Venue Not Found"
+
+@app.route("/api/get_nearby", methods=["GET"])
+#@check_token
+def get_nearby():
+    #search = re.compile(r"(.*)"+short_name+"(.*)")
+    
+    lat = float(request.args.get('lat'))
+    lon = float(request.args.get('lon'))
+    venue =  db.venue.find({"loc":SON([("$near", [lon, lat]),("$maxDistance",0.5)])})
+    
     arr=[]
     for v in venue:
         v["_id"] = str(v["_id"])
