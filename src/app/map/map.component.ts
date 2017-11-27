@@ -13,7 +13,7 @@ import {MatPaginator} from '@angular/material';
 
 export class MapComponent implements OnInit{
   //zoom level
-  zoom: number = 5;
+  zoom: number = 10;
   //Start Position
   lat: number = 37.0902;
   lng: number = -95.7129; 
@@ -25,6 +25,13 @@ export class MapComponent implements OnInit{
   message :any;
   location: any;
   nearby_data:Object;
+  labelOptions = {
+    color: '#FFFFFF',
+    fontFamily: '',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    text: 'Some Text',
+    }
  
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
@@ -38,15 +45,24 @@ export class MapComponent implements OnInit{
       // Read the result field from the JSON response.
       this.api_data = data;
       // console.log(this.api_data);
+      this.lat=this.api_data[0].loc.lt;
+      this.lng=this.api_data[0].loc.lng;
+      this.zoom=5;
     });
   }
   else if(this.location!=undefined){
     this.http.get('http://127.0.0.1:5000/api/get_location/'+this.location).subscribe(data => {
       // Read the result field from the JSON response.
       this.api_data = data;
+      this.lat=this.api_data[0].loc.lt;
+      this.lng=this.api_data[0].loc.lng;
+      this.zoom=10;
       // console.log(this.api_data);
     });
+    //this.lat=this.api_data[0].loc.lt;
+    //this.lng=this.api_data[0].loc.lng;
   }
+  
   this.http.get('http://localhost:5000/api/get_nearby?lat=33.8651641&lon=-84.471184').subscribe(data => {
     // Read the result field from the JSON response.
     this.nearby_data = data;

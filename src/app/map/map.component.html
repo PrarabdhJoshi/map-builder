@@ -14,9 +14,10 @@
 
     <agm-marker (Click)="markerClicked($event)"
       *ngFor="let m of api_data;let i=index"
-     
+      
       [latitude]="m.loc.lt"
       [longitude]="m.loc.lng"
+      [iconUrl]="'https://cdn0.iconfinder.com/data/icons/development-and-startup-9/512/Contract-64.png'"
       
       >
       
@@ -27,6 +28,9 @@
     </agm-marker>
     
 </agm-map>
+
+
+
   </div>
 
   
