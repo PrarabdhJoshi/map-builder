@@ -59,6 +59,8 @@ def put_data():
     onboarding={}
     venue_meta={}
     company={}
+    loc={}
+    sales={}
     for key,value in data.iteritems():
         if(key=="agent" or key=="company_email" or key=="company_phone" or key=="wiki_link" or key=="calendar_link"):
             company[key]=value
@@ -66,10 +68,12 @@ def put_data():
             venue_meta[key]=value
         elif(key=="proposal_template_link" or key=="web_access" or key=="evp_builder"):
             onboarding[key]=value
-        elif(key=="stripe_account"):
+        elif(key=="stripe_account" or key=="stripe_activated"):
             accounts[key]=value
-        elif(key=="lat" or key=="lng"):
-            data1[key]=float(value)
+        elif(key=="lt" or key=="lng"):
+            loc[key]=float(value)
+        elif(key=="market_type" or key=="types"):
+            sales[key]=value
         else:
             data1[key]=value
 
@@ -77,6 +81,8 @@ def put_data():
     data1["venue_meta"]=venue_meta
     data1["accounts"]=accounts
     data1["onboarding"]=onboarding  
+    data1["sales"]=sales
+    data1["loc"]=loc
     collection.insert(data1)
     return jsonify({'result':"Venue Added Succesfully","data":str(data)})
 
