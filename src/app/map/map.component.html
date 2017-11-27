@@ -123,10 +123,12 @@
                             </mat-card>
                         
                       </div>
-                        
-                          <p>Find Prospective Clients Around this Area</p>
+                      <h4>Our Other Partners Near this Venue:</h4>
+                        <div *ngFor="let sale of nearby_data">
+                          <p><strong>{{sale.venue_name}}</strong></p>
+
                           
-                          
+                        </div>
 
                             
                           
@@ -146,6 +148,8 @@
                                   <p><strong>
 
                                     <a href={{d.accounts.stripe_account}}>Conected Stripe Account</a><br>
+                                    
+                                    <p >Account Activated: {{d.accounts.stripe_activated}}</p>
                                    
                                   </strong>                                    
                                   </p>

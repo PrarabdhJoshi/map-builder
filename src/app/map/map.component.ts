@@ -24,6 +24,7 @@ export class MapComponent implements OnInit{
   
   message :any;
   location: any;
+  nearby_data:Object;
  
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
   ngOnInit(): void {
@@ -45,7 +46,13 @@ export class MapComponent implements OnInit{
       this.api_data = data;
       // console.log(this.api_data);
     });
-  } 
+  }
+  this.http.get('http://localhost:5000/api/get_nearby?lat=33.8651641&lon=-84.471184').subscribe(data => {
+    // Read the result field from the JSON response.
+    this.nearby_data = data;
+     console.log(this.nearby_data);
+  });
+  
   
 }
 receiveMessage($event){
