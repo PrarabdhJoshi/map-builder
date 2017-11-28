@@ -19,8 +19,10 @@ export class MapComponent implements OnInit{
   lng: number = -95.7129; 
   //Markers
   visible: boolean = false;
-  
+  url1: string;
   api_data: Object;
+  near:boolean=true;
+  showspinner: boolean=true;
   
   message :any;
   location: any;
@@ -33,10 +35,12 @@ export class MapComponent implements OnInit{
     text: 'Some Text',
     }
  
-  constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){ }
+  constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){
+   // console.log(this.url1);
+   }
   ngOnInit(): void {
     // Make the HTTP request:
-    this.activatedRoute.queryParams.forEach((params: Params) => {
+    this.activatedRoute.params.forEach((params) => {
       this.message=this.activatedRoute.snapshot.queryParams['short_name'];
       this.location=this.activatedRoute.snapshot.queryParams['city_name'];
   });
@@ -44,10 +48,19 @@ export class MapComponent implements OnInit{
     this.http.get('http://127.0.0.1:5000/api/get_venue/'+this.message).subscribe(data => {
       // Read the result field from the JSON response.
       this.api_data = data;
+      
       // console.log(this.api_data);
       this.lat=this.api_data[0].loc.lt;
       this.lng=this.api_data[0].loc.lng;
-      this.zoom=5;
+      this.zoom=10;
+      this.url1 = 'http://localhost:5000/api/get_nearby?lat='+this.lat+'&lon='+this.lng;
+      this.http.get(this.url1).subscribe(data => {
+        // Read the result field from the JSON response.
+        this.nearby_data = data;
+        
+         //console.log(this.nearby_data);
+      });
+      
     });
   }
   else if(this.location!=undefined){
@@ -56,18 +69,22 @@ export class MapComponent implements OnInit{
       this.api_data = data;
       this.lat=this.api_data[0].loc.lt;
       this.lng=this.api_data[0].loc.lng;
+      this.near=false;
       this.zoom=10;
       // console.log(this.api_data);
+      // this.url1 = 'http://localhost:5000/api/get_nearby?lat='+this.lat+'&lon='+this.lng;
+      // this.http.get(this.url1).subscribe(data => {
+      //   // Read the result field from the JSON response.
+      //   this.nearby_data = data;
+      //    //console.log(this.nearby_data);
+      // });
     });
     //this.lat=this.api_data[0].loc.lt;
     //this.lng=this.api_data[0].loc.lng;
   }
   
-  this.http.get('http://localhost:5000/api/get_nearby?lat=33.8651641&lon=-84.471184').subscribe(data => {
-    // Read the result field from the JSON response.
-    this.nearby_data = data;
-     console.log(this.nearby_data);
-  });
+ // console.log(this.url1);
+  
   
   
 }
@@ -79,7 +96,7 @@ receiveMessage($event){
   //   console.log('Clicked Marker: '+marker.name+'at index'+index);
   // }
  
-
+  
   //multiple pinpoints on click
   
   mapClicked($event){

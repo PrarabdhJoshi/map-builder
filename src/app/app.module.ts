@@ -23,6 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
+import { LoadingComponent } from './ui/loading/loading.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditVenueComponent } from './edit-venue/edit-venue.component';
   declarations: [ 
     AppComponent,
     MapComponent,
-    EditVenueComponent
+    EditVenueComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
