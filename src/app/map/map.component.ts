@@ -50,7 +50,7 @@ export class MapComponent implements OnInit{
       // console.log(this.api_data);
       this.lat=this.api_data[0].loc.lt;
       this.lng=this.api_data[0].loc.lng;
-      this.zoom=9;
+      this.zoom=10;
       this.url1 = 'http://localhost:5000/api/get_nearby?lat='+this.lat+'&lon='+this.lng;
       this.http.get(this.url1).subscribe(data => {
         // Read the result field from the JSON response.
