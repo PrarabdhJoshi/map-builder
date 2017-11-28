@@ -116,6 +116,8 @@ def get_nearby():
     
     arr=[]
     for v in venue:
+        if(v["loc"]["lt"]==lat and v["loc"]["lng"]==lon):
+            continue
         v["_id"] = str(v["_id"])
         arr.append(v)
     if(venue):
