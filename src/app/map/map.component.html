@@ -22,7 +22,8 @@
       >
       
       <agm-info-window>
-        <strong>{{m.venue_name}}</strong><br/>
+        <strong>{{m.venue_name}}
+         </strong><br/>
         
       </agm-info-window> 
     </agm-marker>
@@ -30,6 +31,14 @@
     [latitude]="near.loc.lt"
     [longitude]="near.loc.lng"
     [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-4/24/_e-48.png'">
+
+    <agm-info-window>
+        <strong>{{near.venue_name}}</strong>
+       
+        <br/>
+         
+        
+      </agm-info-window> 
 
     </agm-marker>
     
@@ -62,7 +71,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>{{d.venue_meta.venue_website}}</button>
+                  <a href={{d.venue_meta.venue_website}}>{{d.venue_meta.venue_website}}</a>
                
                 </mat-card-actions>
                 </mat-card>
@@ -135,7 +144,26 @@
                       </div>
                       <h4>Our Other Partners Near this Venue:</h4>
                         <div *ngFor="let sale of nearby_data">
-                          <p><strong>{{sale.venue_name}}</strong></p>
+                            <mat-card class="example-card" >
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image"></div>
+                                  <mat-card-title><h4>{{sale.venue_name}}</h4></mat-card-title>
+                              
+                                </mat-card-header>
+                              <mat-card-content>
+                                <p><a href={{sale.venue_meta.venue_name}}>Website</a></p>
+                                <p><a href={{sale.onboarding.evp_builder}}>Evp Builder</a></p>
+                                
+                                <a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">show this</a>
+                                <p><strong>
+  
+                                  Venue Type: {{sale.sales.types}}
+                                 
+                                </strong>                                    
+                                </p>
+                              </mat-card-content>
+                              </mat-card>
+                          
 
                           
                         </div>
