@@ -23,7 +23,7 @@ export class MapComponent implements OnInit{
   api_data: Object;
   near:boolean=true;
   showspinner: boolean=true;
-  
+  mapType: any = 'roadmap';  
   message :any;
   location: any;
   nearby_data:Object;
