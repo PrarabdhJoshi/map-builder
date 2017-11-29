@@ -9,14 +9,9 @@ describe('map-builder-ui App', () => {
     page = new AppPage();
   });
 
-  it('Login Page test', () => {
-    browser.get('/login');
-    const userEmail = element(by.id('loginEmail')).sendKeys('wingzone@gmail.com');
-    const userPassword = element(by.id('loginPassword')).sendKeys('admin');
-    const button = element(by.id('loginButton'));
-    button.click();
-
-    expect(element.all(by.tagName('tr')).count()).toBe(0);
+  it('should display welcome message', () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual('app');
   });
 
 
