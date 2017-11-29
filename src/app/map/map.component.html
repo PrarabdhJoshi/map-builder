@@ -57,11 +57,11 @@
               <div style="width: 450px; display: table-cell;">
                 <mat-card class="example-card" >
                   <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
+                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}">></div>
                     <mat-card-title><h2>{{d.venue_name}}</h2></mat-card-title>
                 
                   </mat-card-header>
-                <img mat-card-image src="https://cdn.wedding-spot.com/images/venues/9247/101-Steak-Wedding-Atlanta-GA-3_main.1480707976.jpg" alt="venue_pic">
+                <img mat-card-image [src]="d.venue_meta.photo" alt="venue_pic" style="height:150px">
                 <mat-card-content>
                   <p><strong>
                     {{d.venue_meta.venue_street}}<br>
@@ -82,7 +82,7 @@
                           <div class="demo-tab-content">
                               <mat-card class="example-card" >
                                   <mat-card-header>
-                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
                                     <mat-card-title><h2>{{d.company.agent}}</h2></mat-card-title>
                                 
                                   </mat-card-header>
@@ -104,7 +104,7 @@
                           <div class="demo-tab-content">
                               <mat-card class="example-card" >
                                   <mat-card-header>
-                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
                                     <mat-card-title><h2>{{d.status}}/{{d.service_type}}</h2></mat-card-title>
                                 
                                   </mat-card-header>
@@ -127,7 +127,7 @@
                         <div class="demo-tab-content">
                           <mat-card class="example-card" >
                               <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
+                                <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
                                 <mat-card-title><h2>Market: {{d.sales.market_type}}</h2></mat-card-title>
                             
                               </mat-card-header>
@@ -178,7 +178,7 @@
                           <div class="demo-tab-content">
                               <mat-card class="example-card" >
                                   <mat-card-header>
-                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
                                     <mat-card-title><h2>Account Connected</h2></mat-card-title>
                                 
                                   </mat-card-header>
