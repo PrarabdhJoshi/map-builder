@@ -66,7 +66,7 @@ def put_data():
     for key,value in data.iteritems():
         if(key=="agent" or key=="company_email" or key=="company_phone" or key=="wiki_link" or key=="calendar_link"):
             company[key]=value
-        elif(key=="venue_phone" or key=="venue_street" or key=="venue_city" or key=="venue_state" or key=="venue_zip" or key=="venue_website"):
+        elif(key=="venue_phone" or key=="logo" or key=="photo" or key=="venue_street" or key=="venue_city" or key=="venue_state" or key=="venue_zip" or key=="venue_website"):
             venue_meta[key]=value
         elif(key=="proposal_template_link" or key=="web_access" or key=="evp_builder"):
             onboarding[key]=value
