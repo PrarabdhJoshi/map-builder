@@ -58,7 +58,7 @@
                 <mat-card class="example-card" >
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}">></div>
-                    <mat-card-title><h2>{{d.venue_name}}</h2></mat-card-title>
+                    <mat-card-title><h2> <a href={{d.venue_meta.venue_website}} target="_blank">{{d.venue_name}}</a></h2></mat-card-title>
                 
                   </mat-card-header>
                 <img mat-card-image [src]="d.venue_meta.photo" alt="venue_pic" style="height:150px">
@@ -71,7 +71,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <a href={{d.venue_meta.venue_website}}>{{d.venue_meta.venue_website}}</a>
+                 
                
                 </mat-card-actions>
                 </mat-card>
@@ -128,7 +128,7 @@
                           <mat-card class="example-card" >
                               <mat-card-header>
                                 <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
-                                <mat-card-title><h2>Market: {{d.sales.market_type}}</h2></mat-card-title>
+                                <mat-card-title><h3>{{d.sales.market_type}}</h3></mat-card-title>
                             
                               </mat-card-header>
                             <mat-card-content>
@@ -142,26 +142,25 @@
                             </mat-card>
                         
                       </div>
-                      <h4>Our Other Partners Near this Venue:</h4>
+                      <h4>NearBy:</h4>
                         <div *ngFor="let sale of nearby_data">
                             <mat-card class="example-card" >
                                 <mat-card-header>
-                                  <div mat-card-avatar class="example-header-image"></div>
-                                  <mat-card-title><h4>{{sale.venue_name}}</h4></mat-card-title>
+                                 
+                                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + sale.venue_meta.logo + ')'}">
+
+                                    </div>
+                                  
+                                  <mat-card-title><h4><a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">{{sale.venue_name}}</a></h4></mat-card-title>
                               
                                 </mat-card-header>
-                              <mat-card-content>
-                                <p><a href={{sale.venue_meta.venue_name}}>Website</a></p>
-                                <p><a href={{sale.onboarding.evp_builder}}>Evp Builder</a></p>
+                              <!-- <mat-card-content>
                                 
-                                <a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">show this</a>
-                                <p><strong>
-  
-                                  Venue Type: {{sale.sales.types}}
-                                 
-                                </strong>                                    
-                                </p>
-                              </mat-card-content>
+                                <p><strong><a href={{sale.onboarding.evp_builder}}>Evp Builder</a></strong></p>
+                                
+                                <p><strong><a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">show this</a></strong></p>
+            
+                              </mat-card-content> -->
                               </mat-card>
                           
 
