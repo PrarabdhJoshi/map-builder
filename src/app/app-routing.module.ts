@@ -3,12 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {CenterComponent} from './core/main/center.component';
 import { MapComponent } from './map/map.component';
 import {EditVenueComponent} from './edit-venue/edit-venue.component';
+import { LoginComponent } from './login/login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'home', component: CenterComponent},
-  {path: 'Service/Sign_in',component: MapComponent},
-  {path: 'edit', component:EditVenueComponent}
+  {path: 'map',component: MapComponent},
+  {path: 'edit', component:EditVenueComponent},
+  {path: 'login', component:LoginComponent}
 ];
 
 @NgModule({

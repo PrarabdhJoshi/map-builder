@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedModule} from '../../shared/shared.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import {SharedModule} from '../../shared/shared.module';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

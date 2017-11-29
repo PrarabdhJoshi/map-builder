@@ -1,4 +1,6 @@
 import { AppPage } from './app.po';
+import {browser, by, element} from 'protractor';
+
 
 describe('map-builder-ui App', () => {
   let page: AppPage;
@@ -11,4 +13,7 @@ describe('map-builder-ui App', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('app');
   });
+
+
+
 });
