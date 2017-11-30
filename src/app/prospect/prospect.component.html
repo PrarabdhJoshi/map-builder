@@ -6,5 +6,22 @@ margin-top: 30px;
   </div>
   <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <agm-marker *ngFor="let near_prospect of prospect_data;let j=index"
+    [latitude]="near_prospect.loc.lt"
+    [longitude]="near_prospect.loc.lng"
+    [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-4/24/_e-48.png'">
+
+    <agm-info-window>
+        <strong>{{near_prospect.venue_name}}</strong>
+       
+        <br/>
+         
+        
+      </agm-info-window> 
+
+    </agm-marker>
+    
+
+
   </agm-map>
 </div>
