@@ -1,8 +1,8 @@
 <mat-toolbar color = "primary">
   <button mat-button class="word" [routerLink]="['/login']" *ngIf="router.url == '/login' || router.url == '/signup' || router.url == '/password' ">Partner Restaurant</button>
-  <button mat-button class="word" [routerLink]="['/home']" *ngIf="router.url == '/login' && router.url == '/signup' && router.url == '/password' ">Partner Restaurant</button>
+  <button mat-button class="word" [routerLink]="['/home']" *ngIf="router.url != '/login' && router.url != '/signup' && router.url != '/password' ">Partner Restaurant</button>
     <span class="fill-remaining-space"></span>
-  <button mat-button class="button" [routerLink]="['/login']" *ngIf="router.url != '/login' && router.url != '/signup' && router.url != '/password' ">Logout</button>
+  <button mat-button class="button" (click)="onLogout()" [routerLink]="['/login']" *ngIf="router.url != '/login' && router.url != '/signup' && router.url != '/password' ">Logout</button>
 
   <!-- <button mat-button class="button" [routerLink]="['/signup']">Sign up</button> -->
 </mat-toolbar>
