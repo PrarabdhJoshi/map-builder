@@ -47,6 +47,6 @@ div {
 
 .errormessage{
   margin-left: 3em;
-  font-size: large;
+  font-weight: bold;
   color: rgb(255, 0, 0);
 }
