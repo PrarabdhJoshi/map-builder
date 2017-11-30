@@ -24,6 +24,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
+import { ProspectComponent } from './prospect/prospect.component';
 
 
 
@@ -34,7 +35,8 @@ import { LoadingComponent } from './ui/loading/loading.component';
     AppComponent,
     MapComponent,
     EditVenueComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProspectComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,10 @@ import { LoadingComponent } from './ui/loading/loading.component';
     MatStepperModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
+      apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw',
+      
+      libraries: ["places"]
+      //'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
     }),
     RouterModule.forRoot([
       {
@@ -69,9 +74,14 @@ import { LoadingComponent } from './ui/loading/loading.component';
         path: 'edit',
         component: EditVenueComponent
       },
+      {
+        path:'prospect',
+        component:ProspectComponent
+      }
     ])
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule {
