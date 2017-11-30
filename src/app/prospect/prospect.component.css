@@ -2,3 +2,88 @@ agm-map {
     height: 570px;
     width: 100%;
   }
+
+  .button1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #050505;
+  }
+  
+  .word {
+    display: flex;
+    color: #000000;
+    font-size: 25px;
+    font-family: Impact;
+  }
+  
+  
+  span {
+    font-size: 12px;
+  }
+  
+  .button {
+    /*margin-left: 30em;*/
+    float: right;
+    margin-right: 28%;
+    padding-top: 0.6%;
+    padding-bottom: 0.7%;
+    margin-left: 0px ;
+  }
+  
+  .radio {
+    /*margin-left: 30em;*/
+    float: right;
+    margin: 5px;
+    margin-right: 47%;
+    padding-top: 0.3%;
+    padding-bottom: 0.9%;
+    margin-left: 30px ;
+    color: rgb(221, 19, 19);
+  }
+  
+  .mapo {
+    /*margin-left: 30em;*/
+    color: rgb(206, 219, 26);
+  }
+  
+  .card {
+    /*flex: 1;*/
+    width: 30%;
+    height: 3.5em;
+    float: left;
+    padding-top: 0.5%;
+    padding-left: auto;
+    margin-left: 27%;
+  }
+  
+  .container {
+    margin-top: 20em;
+  }
+  
+  .full-width-field {
+    width: 1%;
+  }
+  .material-icons-color {
+    color: red;
+  }
+  .inputWidth{
+    width: 100%;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  span {
+    font-family: 'Segoe UI SemiBold';
+    font-size: 14px;
+    color: #fcfcfc;
+  }
+  

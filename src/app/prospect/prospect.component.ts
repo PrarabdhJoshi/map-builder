@@ -14,6 +14,7 @@ export class ProspectComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public show_result: boolean = false;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -53,6 +54,7 @@ export class ProspectComponent implements OnInit {
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
+          this.show_result=true;
           this.zoom = 12;
           console.log(place);
           console.log(this.longitude);
