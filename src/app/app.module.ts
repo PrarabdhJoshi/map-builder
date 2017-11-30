@@ -24,6 +24,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 
@@ -71,7 +73,7 @@ import { LoadingComponent } from './ui/loading/loading.component';
       },
     ])
   ],
-  providers: [],
+  providers:[AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

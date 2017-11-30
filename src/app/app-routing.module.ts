@@ -5,12 +5,26 @@ import { MapComponent } from './map/map.component';
 import {EditVenueComponent} from './edit-venue/edit-venue.component';
 import { LoginComponent } from './login/login/login.component';
 
-const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'home', component: CenterComponent},
-  {path: 'map',component: MapComponent},
-  {path: 'edit', component:EditVenueComponent},
-  {path: 'login', component:LoginComponent}
+import { AuthGuardService } from './auth/auth-guard.service';
+
+
+const routes: Routes = [  
+{path: '', redirectTo: '/login', pathMatch: 'full'},
+  {
+  path: 'home', 
+  component: CenterComponent,
+  canActivate: [AuthGuardService],
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit', 
+    component:EditVenueComponent,
+    canActivate: [AuthGuardService]
+  }
 ];
 
 @NgModule({

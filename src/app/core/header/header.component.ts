@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedModule} from '../../shared/shared.module';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private _authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this._authService.logout();
   }
 
 }
