@@ -86,4 +86,40 @@ agm-map {
     font-size: 14px;
     color: #fcfcfc;
   }
+  agm-map {
+  height: 570px;
+  width: 100%;
+}
+
+.card {
+  /*flex: 1;*/
+  width: 30%;
+  height: 3.5em;
+  float: left;
+  padding-top: 0.5%;
+  padding-left: auto;
+  margin-left: 27%;
+}
+
+.inputWidth{
+  width: 100%;
+}
+
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
   
+  /* background-image: url('http://www.101steakatl.com/wp-content/themes/101steak/images/logo.png'); */
+  background-size: cover;
+  
+}
+
+.demo-tab-group {
+  border: 1px solid #e8e8e8;
+}
+
+.demo-tab-content {
+  padding: 16px;
+}

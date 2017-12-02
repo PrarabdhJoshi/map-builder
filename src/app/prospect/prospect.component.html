@@ -4,12 +4,13 @@ margin-top: 30px;
   <div class="form-group">
     <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
   </div>
-  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" (mapClick)="partnersfound($event)">
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
     <agm-marker *ngFor="let near_prospect of prospect_data;let j=index"
     [latitude]="near_prospect.loc.lt"
     [longitude]="near_prospect.loc.lng"
-    [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-4/24/_e-48.png'">
+    [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-4/24/_e-48.png'"
+    >
 
     <agm-info-window>
         <strong>{{near_prospect.venue_name}}</strong>
@@ -24,4 +25,165 @@ margin-top: 30px;
 
 
   </agm-map>
+
+
 </div>
+
+<div *ngIf="v">
+  
+        <div *ngFor="let d of prospect_data;">
+            <div style="width: 100%; display: table;">
+              <div style="display: table-row">
+                <div style="width: 450px; display: table-cell;">
+                  <mat-card class="example-card" >
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}">></div>
+                      <mat-card-title><h2> <a href={{d.venue_meta.venue_website}} target="_blank">{{d.venue_name}}</a></h2></mat-card-title>
+                  
+                    </mat-card-header>
+                  <img mat-card-image [src]="d.venue_meta.photo" alt="venue_pic" style="height:150px">
+                  <mat-card-content>
+                    <p><strong>
+                      {{d.venue_meta.venue_street}}<br>
+                      {{d.venue_meta.venue_city}}<br>
+                      {{d.venue_meta.venue_state}}<br>
+                      {{d.zip}}</strong>
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                   
+                 
+                  </mat-card-actions>
+                  </mat-card>
+                </div>
+                <div style="display: table-cell;"> 
+                    <mat-tab-group class="demo-tab-group">
+                        <mat-tab label="Event Booking">
+                            <div class="demo-tab-content">
+                                <mat-card class="example-card" >
+                                    <mat-card-header>
+                                      <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
+                                      <mat-card-title><h2>{{d.company.agent}}</h2></mat-card-title>
+                                  
+                                    </mat-card-header>
+                                  <mat-card-content>
+                                    <p><strong>
+  
+                                      <a href={{d.company.calendar_link}}>calendar_link</a><br>
+                                      <a href={{d.company.wiki_link}}>Wiki_Link</a><br />
+                                      {{d.company.company_email}}<br>
+                                      {{d.company.company_phone}}<br>
+                                    </strong>                                    
+                                    </p>
+                                  </mat-card-content>
+                                  </mat-card>
+                              
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Onboarding">
+                            <div class="demo-tab-content">
+                                <mat-card class="example-card" >
+                                    <mat-card-header>
+                                      <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
+                                      <mat-card-title><h2>{{d.status}}/{{d.service_type}}</h2></mat-card-title>
+                                  
+                                    </mat-card-header>
+                                  <mat-card-content>
+                                    <p><strong>
+  
+                                      <a href={{d.onboarding.evp_builder}}>Event Builder</a><br>
+                                      <a href={{d.onboarding.proposal_template_link}}>Proposal Template</a><br />
+                                      <p>Web Access: {{d.onboarding.web_access}}</p><br>
+                                      <a routerLink="/edit"  [queryParams]="{venue_id: d._id}">Edit the Venue Details</a>
+                                     
+                                    </strong>                                    
+                                    </p>
+                                  </mat-card-content>
+                                  </mat-card>
+                              
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Sales">
+                          <div class="demo-tab-content">
+                            <mat-card class="example-card" >
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
+                                  <mat-card-title><h3>{{d.sales.market_type}}</h3></mat-card-title>
+                              
+                                </mat-card-header>
+                              <mat-card-content>
+                                <p><strong>
+  
+                                  Venue Type: {{d.sales.types}}
+                                 
+                                </strong>                                    
+                                </p>
+                              </mat-card-content>
+                              </mat-card>
+                          
+                        </div>
+                        <h4>NearBy:</h4>
+                          <div *ngFor="let sale of nearby_data">
+                              <mat-card class="example-card" >
+                                  <mat-card-header>
+                                   
+                                      <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + sale.venue_meta.logo + ')'}">
+  
+                                      </div>
+                                    
+                                    <mat-card-title><h4><a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">{{sale.venue_name}}</a></h4></mat-card-title>
+                                
+                                  </mat-card-header>
+                                <!-- <mat-card-content>
+                                  
+                                  <p><strong><a href={{sale.onboarding.evp_builder}}>Evp Builder</a></strong></p>
+                                  
+                                  <p><strong><a routerLink="/map" [queryParams]="{short_name: sale.short_name}" target="_blank">show this</a></strong></p>
+              
+                                </mat-card-content> -->
+                                </mat-card>
+                            
+  
+                            
+                          </div>
+  
+                              
+                            
+  
+  
+                        </mat-tab>
+                        <mat-tab label="Accounting">
+  
+                            <div class="demo-tab-content">
+                                <mat-card class="example-card" >
+                                    <mat-card-header>
+                                      <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + d.venue_meta.logo + ')'}"></div>
+                                      <mat-card-title><h2>Account Connected</h2></mat-card-title>
+                                  
+                                    </mat-card-header>
+                                  <mat-card-content>
+                                    <p><strong>
+  
+                                      <a href={{d.accounts.stripe_account}}>Conected Stripe Account</a><br>
+                                      
+                                      <p >Account Activated: {{d.accounts.stripe_activated}}</p>
+                                     
+                                    </strong>                                    
+                                    </p>
+                                  </mat-card-content>
+                                  </mat-card>
+                              
+                            </div>
+  
+                        </mat-tab>
+                      </mat-tab-group>
+             
+                </div>
+                
+              </div>
+            </div>
+        
+        
+        
+        </div>
+        </div>

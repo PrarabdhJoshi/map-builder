@@ -19,6 +19,7 @@ export class ProspectComponent implements OnInit {
   prospect_url: string;
   prospect_data: Object;
   near:boolean=true;
+  v:boolean =false;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -83,5 +84,8 @@ export class ProspectComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+  partnersfound($event){
+    this.v=true;
   }
 }
