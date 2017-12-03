@@ -26,6 +26,7 @@ import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
 import { ProspectComponent } from './prospect/prospect.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FederatedLoginComponent } from './federated-login/federated-login.component';
 
 
 
@@ -37,7 +38,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MapComponent,
     EditVenueComponent,
     LoadingComponent,
-    ProspectComponent
+    ProspectComponent,
+    FederatedLoginComponent
   ],
   imports: [
     BrowserModule,
