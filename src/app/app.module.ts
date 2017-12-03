@@ -27,6 +27,8 @@ import { LoadingComponent } from './ui/loading/loading.component';
 import { ProspectComponent } from './prospect/prospect.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FederatedLoginComponent } from './federated-login/federated-login.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 
@@ -84,8 +86,7 @@ import { FederatedLoginComponent } from './federated-login/federated-login.compo
       }
     ])
   ],
-  providers: [],
-  
+  providers:[AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
