@@ -25,6 +25,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
 import { ProspectComponent } from './prospect/prospect.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -59,6 +60,7 @@ import { ProspectComponent } from './prospect/prospect.component';
     MatPaginatorModule,
     MatStepperModule,
     FormsModule,
+    NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw',
       
