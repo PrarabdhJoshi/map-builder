@@ -10,6 +10,16 @@
   <link rel="icon" type="image/x-icon" href="https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=ZMSSLPh7bgNqsK3w4fwftwafr38%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta9Er0Vinkhwfjw8177yE41y87UNCVordEGXyD3u0qYrdfyO6cMXWKLKnuVUVfX0clFY1KvKgE2PjD5G1It7sfol03cHtJY27dA4BYBI3iSdF_NQ8">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="974027332201-6jdot3n7uc70m19jcshqdkofuhcfqm97.apps.googleusercontent.com">
+        <script>
+          function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });
+          }
+        </script>
 
 </head>
 <body>

@@ -1,29 +1,31 @@
-<div>
-  <form [formGroup]="form" (submit)="login()">
+<div style="height:690px;">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-card class="container">
       <mat-card-header>
         <mat-card-title>
           <span color="primary" class="titlePosition">Sign In</span>
+          <p class="errormessage" *ngIf="error">{{error}}</p>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-input-container class="full-width">
-          <input matInput type="text" id="loginEmail" name="login[email]" placeholder="Email" formControlName="email">
+          <input matInput type="text" id="loginEmail" name="username" [(ngModel)]="username" id="loginEmail" placeholder="Email" formControlName="email">
           <mat-error>Can't be null!</mat-error>
         </mat-input-container>
         <mat-input-container class="full-width">
-          <input matInput type="password" id="loginPassword" name="login[password]" placeholder="Password"
+          <input matInput type="password" id="loginPassword" name="password" [(ngModel)]="password" id="loginPassword" placeholder="Password"
           formControlName="password">
           <mat-error>Password should be longer than 8!</mat-error>
         </mat-input-container>
-        <button mat-raised-button type="submit" class="bottonPosition" (click)="login()" color="primary" 
+        <button mat-raised-button type="submit" id="loginButton" class="bottonPosition" color="primary" 
         [disabled]="!form.valid" id="loginButton">Log In</button>
       </mat-card-content>
-      <mat-card-actions class="text-right">
+      <!-- <mat-card-actions class="text-right">
         <p><a [routerLink]="['/signup']" style="text-decoration: none">Create New Account</a>
         </p>
         <a href="" style="text-decoration: none">Forgot Password</a>
-      </mat-card-actions>
+
+      </mat-card-actions> -->
     </mat-card>
   </form>
 </div>
