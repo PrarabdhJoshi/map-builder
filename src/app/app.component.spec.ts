@@ -5,14 +5,15 @@ import {CoreModule} from './core/core.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {MatToolbarModule} from '@angular/material';
 import { MapComponent } from './map/map.component';
-
+import {EditVenueComponent} from './edit-venue/edit-venue.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MapComponent
+        MapComponent,
+        EditVenueComponent
       ],
       imports: [
         RouterModule.forRoot([]),
@@ -28,10 +29,5 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
  
 });

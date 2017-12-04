@@ -58,6 +58,7 @@ describe('map-builder-ui App', () => {
     radiobuttonLocation.click();
     const radiobuttonName = element(by.id('nameButton'));
     radiobuttonName.click();
+
   });
 
 

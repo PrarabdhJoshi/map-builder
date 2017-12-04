@@ -4,6 +4,7 @@ import { HeaderComponent } from './header.component';
 import {RouterModule} from '@angular/router';
 import {MatToolbarModule} from '@angular/material';
 import {APP_BASE_HREF} from '@angular/common';
+import { AuthService } from '../../auth/auth.service';
 
 
 describe('HeaderComponent', () => {
@@ -21,7 +22,8 @@ describe('HeaderComponent', () => {
         {
           provide: APP_BASE_HREF,
           useValue: '/'
-        }
+        },
+        AuthService
       ]
     })
     .compileComponents();

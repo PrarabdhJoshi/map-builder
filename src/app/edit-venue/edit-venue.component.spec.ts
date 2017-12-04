@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditVenueComponent } from './edit-venue.component';
+import {Http} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 describe('EditVenueComponent', () => {
   let component: EditVenueComponent;
@@ -8,7 +10,9 @@ describe('EditVenueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditVenueComponent ]
+      imports: [HttpModule],
+      declarations: [ EditVenueComponent ],
+      providers: [Http],
     })
     .compileComponents();
   }));

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import {Http} from '@angular/http';
 import {editService} from './edit-venue.service';
 import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-edit-venue',
   providers:[editService],
