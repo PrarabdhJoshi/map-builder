@@ -1,4 +1,4 @@
-<div>
+<div style="height:690px;">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-card class="container">
       <mat-card-header>
@@ -20,11 +20,12 @@
         <button mat-raised-button type="submit" id="loginButton" class="bottonPosition" color="primary" 
         [disabled]="!form.valid" id="loginButton">Log In</button>
       </mat-card-content>
-      <mat-card-actions class="text-right">
+      <!-- <mat-card-actions class="text-right">
         <p><a [routerLink]="['/signup']" style="text-decoration: none">Create New Account</a>
         </p>
         <a href="" style="text-decoration: none">Forgot Password</a>
-      </mat-card-actions>
+
+      </mat-card-actions> -->
     </mat-card>
   </form>
 </div>

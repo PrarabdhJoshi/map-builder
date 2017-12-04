@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class AuthService {
+export class AuthService{
 
   isLoggedIn: boolean = false;
   redirectUrl: string;
@@ -22,3 +22,6 @@ export class AuthService {
     this.isLoggedIn = false;
   }
 }
+
+
+
