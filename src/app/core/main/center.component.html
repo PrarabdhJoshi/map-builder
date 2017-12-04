@@ -44,7 +44,7 @@
                 <mat-card-content>         
                   <mat-input-container class="inputWidth">
               <!--<input matInput type="text" placeholder="Location">-->
-              <input matInput [formControl]="zipinputField" placeholder="Enter Location" #searchloc value="{{city_name}}">
+              <input matInput [formControl]="zipinputField" id="location_input" placeholder="Enter Location" #searchloc value="{{city_name}}">
               
                 <mat-option *ngFor="let v of zip_search_result" (click)="onlocclick($event)" [value]="v.short_name">
                   
