@@ -26,6 +26,7 @@ client = pymongo.MongoClient("mongodb://"+user_info['username']+":"+user_info['p
 
 db = client.test_map_db
 
+
 # print the number of documents in a collection
 #print db.collection.count()
 
@@ -49,6 +50,29 @@ def check_token(f):
 @app.route("/")
 def welcome():
     return "This is the welcome page!!"
+
+@app.route("/api/update_user/<string:s_name>", methods=["PUT"])
+def update_user(s_name):
+    collection = db.venue
+    data = request.form.to_dict()
+    for key,value in data.iteritems():
+        if(key=="agent" or key=="company_email" or key=="company_phone" or key=="wiki_link" or key=="calendar_link"):
+            collection.update_one({"short_name": s_name},{"$set": {'company.'+key:value}})
+        elif(key=="venue_phone" or key=="logo" or key=="photo" or key=="venue_street" or key=="venue_city" or key=="venue_state" or key=="venue_zip" or key=="venue_website"):
+            collection.update_one({"short_name": s_name},{"$set": {'venue_meta.'+key:value}})
+        elif(key=="proposal_template_link" or key=="web_access" or key=="evp_builder"):
+            collection.update_one({"short_name": s_name},{"$set": {'onboarding.'+key:value}})
+        elif(key=="stripe_account" or key=="stripe_activated"):
+            collection.update_one({"short_name": s_name},{"$set": {'accounts.'+key:value}})
+        elif(key=="lt" or key=="lng"):
+            collection.update_one({"short_name": s_name},{"$set": {'loc.'+key:float(value)}})
+        elif(key=="market_type" or key=="types"):
+            collection.update_one({"short_name": s_name},{"$set": {'sales.'+key:value}})
+        else:
+            collection.update_one({"short_name": s_name},{"$set": {key:value}})
+        
+        return jsonify({'result':"Venue Updated Succesfully"})
+
 
 @app.route("/api/addvenue", methods=["POST"])
 def put_data():
@@ -163,6 +187,20 @@ def get_all_venues():
         v["_id"] = str(v["_id"])
         all_data.append(v)
     return jsonify(all_data)
+
+@app.route("/api/check_user", methods=["GET"])
+def check_user_crendentials():
+    user_name = request.args.get('user')
+    password = request.args.get('pass')
+    result = db.User.find({'username':user_name,'password':password})
+    if(result):
+        return jsonify({'status':True})
+    else:
+        return jsonify({'status':False})
+
+
+    
+
 
 
 @app.route("/login")
