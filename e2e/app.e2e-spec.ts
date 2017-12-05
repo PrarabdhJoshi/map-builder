@@ -94,8 +94,9 @@ describe('map-builder-ui App', () => {
   });
 
   it('Map Page test', () => {
-    browser.get('/map'); 
-    const nothing = element(by.id('mapmarker')).evaluate('mapClicked($event)');
+
+    browser.get('/map?short_name=101-steak');
+    
   });
   
 
