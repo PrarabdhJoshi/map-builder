@@ -92,12 +92,8 @@ describe('map-builder-ui App', () => {
   });
 
   it('Map Page test', () => {
-    browser.get('/login');
-    const userEmail = element(by.id('loginEmail')).sendKeys('test@gmail.com');
-    const userPassword = element(by.id('loginPassword')).sendKeys('testuser123');
-    const button = element(by.id('loginButton'));
-    button.click();
-
+    browser.get('/map?short_name=101-steak');
+    
     
    
   });
