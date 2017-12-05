@@ -6,6 +6,7 @@ export class UserService {
   constructor() {
   }
 
+  // Demo user created
   users: User[] = [
     new User('wingzone@gmail.com', 'wingzone', 'admin', true)
   ];

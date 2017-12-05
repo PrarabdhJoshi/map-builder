@@ -17,6 +17,8 @@ export class SignupComponent implements OnInit {
     console.log('email' + valid);
     return valid ? null : {email: true};
   }
+
+  // Validation of Password is done here
   passwordValidator(info: FormGroup): any {
     const password: FormControl = info.get('password') as FormControl;
     const confirmPassword: FormControl = info.get('confirmPassword') as FormControl;
@@ -37,6 +39,8 @@ export class SignupComponent implements OnInit {
       }, {validator: this.passwordValidator})
     });
   }
+
+  // SignUp initial User
   signUp() {
     console.log(this.signupForm.value);
   }

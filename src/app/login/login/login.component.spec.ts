@@ -5,6 +5,8 @@ import {LoginComponent} from './login.component';
 import { MatCardModule } from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
+import { AuthService } from '../../auth/auth.service';
+
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -24,6 +26,7 @@ describe('LoginComponent', () => {
           provide: APP_BASE_HREF,
           useValue: '/'
         },
+        AuthService
       ]
     })
       .compileComponents();

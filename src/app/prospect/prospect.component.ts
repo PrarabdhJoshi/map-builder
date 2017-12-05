@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
+import {} from '@types/googlemaps';
 
 @Component({
   selector: 'app-prospect',
@@ -76,6 +77,7 @@ export class ProspectComponent implements OnInit {
     });
   }
 
+  // Used to set the current position
   private setCurrentPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {

@@ -25,11 +25,24 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
 import { ProspectComponent } from './prospect/prospect.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule}  from 'ngx-pagination';
+import { FederatedLoginComponent } from './federated-login/federated-login.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
-
-
-
+import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+import { GoogleLoginProvider } from "angular4-social-login";
+ 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("974027332201-6jdot3n7uc70m19jcshqdkofuhcfqm97.apps.googleusercontent.com")
+  }
+]);
+ 
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [ 
@@ -37,7 +50,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MapComponent,
     EditVenueComponent,
     LoadingComponent,
-    ProspectComponent
+    ProspectComponent,
+    FederatedLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +75,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatStepperModule,
     FormsModule,
     NgxPaginationModule,
+    SocialLoginModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw',
       
@@ -82,8 +97,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
       }
     ])
   ],
-  providers: [],
-  
+  providers:[AuthService, AuthGuardService, {
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
