@@ -25,7 +25,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { EditVenueComponent } from './edit-venue/edit-venue.component';
 import { LoadingComponent } from './ui/loading/loading.component';
 import { ProspectComponent } from './prospect/prospect.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule}  from 'ngx-pagination';
 import { FederatedLoginComponent } from './federated-login/federated-login.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';

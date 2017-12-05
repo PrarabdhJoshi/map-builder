@@ -35,7 +35,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     
-    <button mat-raised-button type="button" class="button" color="primary" routerLink="/map" [queryParams]="{short_name: searchvalue.value}">Search Resturant
+    <button mat-raised-button type="button" id="submitbutton" class="button" color="primary" routerLink="/map" [queryParams]="{short_name: searchvalue.value}">Search Resturant
   </button>
           </div>      
           <div *ngIf="searchbylocation">
@@ -58,7 +58,7 @@
           <mat-card-actions></mat-card-actions>
         </mat-card>
         
-        <button mat-raised-button type="button" class="button" color="primary" routerLink="/map" [queryParams]="{city_name: searchloc.value}">Search Resturant
+        <button mat-raised-button type="button" id="submitbutton" class="button" color="primary" routerLink="/map" [queryParams]="{city_name: searchloc.value}">Search Resturant
       </button>
               </div>      
   </form> 

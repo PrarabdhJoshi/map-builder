@@ -72,7 +72,9 @@ describe('map-builder-ui App', () => {
     const radiobuttonName = element(by.id('nameButton'));
     radiobuttonName.click();
     const venue = element(by.id('venueInput')).sendKeys('Macys Restaurant');
-    
+    const buttonName = element(by.id('submitbutton'));
+    buttonName.click();
+
     expect(element.all(by.tagName('tr')).count()).toBe(0);
   });
 
@@ -98,9 +100,14 @@ describe('map-builder-ui App', () => {
     const button = element(by.id('loginButton'));
     button.click();
 
-    
-   
+    const radiobuttonName = element(by.id('nameButton'));
+    radiobuttonName.click();
+    const venue = element(by.id('venueInput')).sendKeys('Macys Restaurant');
+    const buttonName = element(by.id('submitbutton'));
+    buttonName.click();    
+    const mapmaker= element(by.id('mapmarker')).sendKeys('Bucket'); 
   });
+  
   
   it('Logout from Homepage Test', () => {
     browser.get('/login');

@@ -38,6 +38,7 @@ export class MapComponent implements OnInit{
   constructor(private http: HttpClient,private activatedRoute: ActivatedRoute){
    // console.log(this.url1);
    }
+   
   ngOnInit(): void {
     // Make the HTTP request:
     this.activatedRoute.params.forEach((params) => {

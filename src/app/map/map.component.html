@@ -18,16 +18,15 @@
       [latitude]="m.loc.lt"
       [longitude]="m.loc.lng"
       [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-3-2/24/_e-48.png'"
-      
       >
       
-      <agm-info-window>
+      <agm-info-window id="mapmarker">
         <strong>{{m.venue_name}}
          </strong><br/>
         
       </agm-info-window> 
     </agm-marker>
-    <agm-marker *ngFor="let near of nearby_data;let j=index"
+    <agm-marker  *ngFor="let near of nearby_data;let j=index"
     [latitude]="near.loc.lt"
     [longitude]="near.loc.lng"
     [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-4/24/_e-48.png'">
