@@ -1,5 +1,5 @@
 mat-card {
-  width: 22em;
+  width: 44em;
   margin: 5px 5px;
   flex: 0 0 20em;
 }
@@ -20,7 +20,7 @@ form {
 }
 
 .titlePosition {
-  margin-left: 4em;
+  margin-left: 12em;
   font-weight: bold;
   font-size: large;
   color: indigo;

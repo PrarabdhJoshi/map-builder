@@ -81,7 +81,7 @@ describe('map-builder-ui App', () => {
     buttonName.click();
     page.pause();
     expect(element.all(by.tagName('tr')).count()).toBe(0);
-    
+
   });
 
 
@@ -92,17 +92,19 @@ describe('map-builder-ui App', () => {
     const userPassword = element(by.id('loginPassword')).sendKeys('testuser123');
     const button = element(by.id('loginButton'));
     button.click();
-
+    page.pause();
     const titlebutton = element(by.id('afterlogin'));
     titlebutton.click();
+    page.pause();
     const titlebutton1  = element(by.id('afterlogin'));
     titlebutton1.click();
+    page.pause();
   });
 
   it('Map Page test', () => {
 
     browser.get('/map?short_name=101-steak');
-
+    page.pause();
   });
   
 
@@ -112,9 +114,9 @@ describe('map-builder-ui App', () => {
     const userPassword = element(by.id('loginPassword')).sendKeys('testuser123');
     const button = element(by.id('loginButton'));
     button.click();
-
     const titlebutton = element(by.id('logoutbutton'));
     titlebutton.click();
+    page.pause();
   });
   
 
