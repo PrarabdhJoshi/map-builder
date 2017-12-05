@@ -84,8 +84,6 @@ describe('map-builder-ui App', () => {
 
   });
 
-
- 
   it('Title Button Redirection After login', () => {
     browser.get('/login');
     const userEmail = element(by.id('loginEmail')).sendKeys('test@gmail.com');
@@ -102,8 +100,10 @@ describe('map-builder-ui App', () => {
   });
 
   it('Map Page test', () => {
-
-    browser.get('/map?short_name=101-steak');
+    browser.get('/map');
+    page.pause();  
+    const mapclick  = element(by.id('mapmarker'));
+    mapclick.click();
     page.pause();
   });
   
@@ -119,6 +119,4 @@ describe('map-builder-ui App', () => {
     page.pause();
   });
   
-
-
 });
