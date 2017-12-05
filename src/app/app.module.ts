@@ -30,8 +30,19 @@ import { FederatedLoginComponent } from './federated-login/federated-login.compo
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 
-
-
+import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+import { GoogleLoginProvider } from "angular4-social-login";
+ 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("974027332201-6jdot3n7uc70m19jcshqdkofuhcfqm97.apps.googleusercontent.com")
+  }
+]);
+ 
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [ 
@@ -64,6 +75,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
     MatStepperModule,
     FormsModule,
     NgxPaginationModule,
+    SocialLoginModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw',
       
@@ -85,7 +97,10 @@ import { AuthGuardService } from './auth/auth-guard.service';
       }
     ])
   ],
-  providers:[AuthService, AuthGuardService],
+  providers:[AuthService, AuthGuardService, {
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
