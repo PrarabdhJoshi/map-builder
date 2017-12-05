@@ -55,37 +55,21 @@ export class CenterComponent implements OnInit {
 
     
   
-// function Controller($scope) {
-  
-//       $scope.radioChecked = function ()
-//       {
-//           $scope.placeholder="%";
-//           $scope.apply();
-//       }
-  
-//       $scope.radiounChecked = function ()
-//       {
-//           $scope.placeholder="Count";
-//           $scope.apply();
-//       }
-//   }
   }
   
   
-  // sendMessage(){
-  //   this.messageEvent.emit(this.message);
-  // }
-
   @HostListener('window:keyup.enter', ['$event'])
   oonEnter($event) {
     this.short_name=($event.target.value);
   }
  
+  //Onclick event for setting short name
   onclick($event){
     this.short_name=$event.target.innerHTML;
     console.log($event);
   }
 
+  //Onclick event for setting city name
   onlocclick($event){
     this.city_name = $event.target.innerHTML;
   }
@@ -94,10 +78,13 @@ export class CenterComponent implements OnInit {
   }
 
 
+  //Called for Location search
   locsearch(){
     this.searchbylocation=true;
     this.searchbyname=false;
   }
+
+  //Called for Name search
   namesearch(){
     this.searchbylocation=false;
     this.searchbyname=true;

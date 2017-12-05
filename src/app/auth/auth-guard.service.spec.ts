@@ -14,7 +14,7 @@ describe('Service: AuthGuard', () => {
     });
   });
 
-  it('should ...', inject([AuthGuardService], (service: AuthGuardService) => {
+  it('should Restrict Unnecessary user', inject([AuthGuardService], (service: AuthGuardService) => {
     expect(service).toBeTruthy();
   }));
 });

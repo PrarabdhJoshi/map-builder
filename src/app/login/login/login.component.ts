@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
   })
   export class LoginComponent implements OnInit {
 
-    //Added for Auth
+    //Added for Authentication
     username: string;
     password: string;
 
@@ -38,10 +38,12 @@ import { AuthService } from '../../auth/auth.service';
       });
     }
 
+    // If Logged redirected towards Home
     login() {
       this.router.navigateByUrl('//home');
     }
 
+    // on submit called on Button press 
     onSubmit() {
       if (this._authService.login(this.username, this.password)) {
         this.error = null;

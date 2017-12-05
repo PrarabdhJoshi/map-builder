@@ -94,21 +94,11 @@ describe('map-builder-ui App', () => {
   });
 
   it('Map Page test', () => {
-    browser.get('/login');
-    const userEmail = element(by.id('loginEmail')).sendKeys('test@gmail.com');
-    const userPassword = element(by.id('loginPassword')).sendKeys('testuser123');
-    const button = element(by.id('loginButton'));
-    button.click();
-
-    const radiobuttonName = element(by.id('nameButton'));
-    radiobuttonName.click();
-    const venue = element(by.id('venueInput')).sendKeys('Macys Restaurant');
-    const buttonName = element(by.id('submitbutton'));
-    buttonName.click();    
-    const mapmaker= element(by.id('mapmarker')).sendKeys('Bucket'); 
+    browser.get('/map'); 
+    const nothing = element(by.id('mapmarker')).evaluate('mapClicked($event)');
   });
   
-  
+
   it('Logout from Homepage Test', () => {
     browser.get('/login');
     const userEmail = element(by.id('loginEmail')).sendKeys('test@gmail.com');

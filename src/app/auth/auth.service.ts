@@ -8,6 +8,7 @@ export class AuthService{
 
   constructor() { }
 
+  // Used to Login an User
   login(username: string, password: string): boolean {
     if (username === 'test@gmail.com' && password === 'testuser123') {
       this.isLoggedIn = true;
@@ -18,6 +19,8 @@ export class AuthService{
     return this.isLoggedIn;
   }
 
+
+  // Used to logout an user
   logout() {
     this.isLoggedIn = false;
   }

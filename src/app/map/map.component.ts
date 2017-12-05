@@ -12,12 +12,12 @@ import {MatPaginator} from '@angular/material';
 })
 
 export class MapComponent implements OnInit{
-  //zoom level
+  //zoom level for Map
   zoom: number = 10;
-  //Start Position
+  //Start Position for Map
   lat: number = 37.0902;
   lng: number = -95.7129; 
-  //Markers
+  //Markers Variables
   visible: boolean = false;
   url1: string;
   api_data: Object;
@@ -93,39 +93,12 @@ receiveMessage($event){
   this.message = $event;
 }
 
-  // clickedMarker(marker:marker, index:number){
-  //   console.log('Clicked Marker: '+marker.name+'at index'+index);
-  // }
  
-  
   //multiple pinpoints on click
   
   mapClicked($event){
     this.visible=true;
   }
 
-  // markerDragEnd(marker:any, $event:any){
-  //   var updMarker = {
-  //     name: marker.name,
-  //     lat: parseFloat(marker.lat),
-  //     lng: parseFloat(marker.lng),
-  //     draggable:false
-  //   }
-  //   var newLat = $event.coords.lat;
-  //   var newLng = $event.coords.lat;
-  // }
-
-
-
 }
 
-
-// //Marker type
-// interface marker{
-//   name?:string;
-//   desc?:string;
-//   icon?:string;
-//   lat:number;
-//   lng:number;
-//   draggable:boolean;  
-// }

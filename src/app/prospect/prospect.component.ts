@@ -77,6 +77,7 @@ export class ProspectComponent implements OnInit {
     });
   }
 
+  // Used to set the current position
   private setCurrentPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
