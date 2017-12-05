@@ -8,6 +8,7 @@
   [latitude]="lat" 
   [longitude]="lng"
   [zoom]="zoom"
+  id="mapmarker"
   [disableDefaultUI]=false
   [zoomControl]="false"
   (mapClick)="mapClicked($event)">
@@ -20,7 +21,7 @@
       [iconUrl]="'https://cdn1.iconfinder.com/data/icons/social-media-vol-3-2/24/_e-48.png'"
       >
       
-      <agm-info-window id="mapmarker">
+      <agm-info-window>
         <strong>{{m.venue_name}}
          </strong><br/>
         
