@@ -36,7 +36,7 @@ import { GoogleLoginProvider } from "angular4-social-login";
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("974027332201-6jdot3n7uc70m19jcshqdkofuhcfqm97.apps.googleusercontent.com")
+    provider: new GoogleLoginProvider("Google-client-id")
   }
 ]);
  
