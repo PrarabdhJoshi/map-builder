@@ -19,6 +19,8 @@
         </mat-input-container>
         <button mat-raised-button type="submit" id="loginButton" class="bottonPosition" color="primary" 
         [disabled]="!form.valid" id="loginButton">Log In</button>
+        <p style="text-align:center">or</p>
+        <button mat-raised-button class="bottonPosition" color="primary" (click)="signInWithGoogle()">Log In using Google</button>
       </mat-card-content>
       <mat-card-actions class="text-right">
         <p><a [routerLink]="['/signup']" style="text-decoration: none">Create New Account</a>

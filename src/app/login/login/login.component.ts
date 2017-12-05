@@ -3,7 +3,9 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import {UserService} from '../../domain/user.service';
 import { AuthService } from '../../auth/auth.service';
-
+import { AuthService as AService} from "angular4-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angular4-social-login";
+import { SocialUser } from "angular4-social-login";
   @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -16,7 +18,8 @@ import { AuthService } from '../../auth/auth.service';
     password: string;
 
     error: string;
-    
+    private user: SocialUser;
+    private loggedIn: boolean;
     public userEmail: string;
     form: FormGroup;
     fb: FormBuilder = new FormBuilder();
@@ -28,10 +31,20 @@ import { AuthService } from '../../auth/auth.service';
     }
   
 
-    constructor(private _authService: AuthService,private router: Router) {
+    constructor(private _authService: AuthService,private router: Router,private authService: AService) {
     }
 
+    signInWithGoogle(): void {
+      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    }
     ngOnInit() {
+
+      this.authService.authState.subscribe((user) => {
+        this.user = user;
+        this.loggedIn = (user != null);
+        if(this.loggedIn)
+          this.router.navigateByUrl('//home');
+      });
       this.form = this.fb.group({
         email: ['', this.emailValidator],
         password: ['']
