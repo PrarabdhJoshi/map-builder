@@ -77,10 +77,10 @@ export function provideConfig() {
     NgxPaginationModule,
     SocialLoginModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw',
+      apiKey:YOUR_API_KEY,
       
       libraries: ["places"]
-      //'AIzaSyBvuCT0-V_Y50Np7Six7oTgqqL5wUzSPiw'
+      
     }),
     RouterModule.forRoot([
       {
